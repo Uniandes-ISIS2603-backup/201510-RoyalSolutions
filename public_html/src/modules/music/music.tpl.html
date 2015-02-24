@@ -1,0 +1,74 @@
+<div ng-controller="musicCtrl as musicCtrl">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Music</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="music-navbar">
+					<button class="btn btn-default navbar-btn" ng-hide="musicCtrl.editMode" ng-click="musicCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button class="btn btn-default navbar-btn" ng-hide="musicCtrl.editMode" ng-click="musicCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+                                        <button class="btn btn-default navbar-btn" ng-hide="musicCtrl.editMode" ng-click="musicCtrl.comparacion()"><span class="glyphicon glyphicon-star"></span> Show the artist with more albums</button>
+					<button class="btn btn-default navbar-btn" ng-show="musicCtrl.editMode" ng-click="musicCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button class="btn btn-default navbar-btn" ng-show="musicCtrl.editMode" ng-click="musicCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div ng-hide="musicCtrl.editMode">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Band/Artist</th>
+					<th>Started on</th>
+					<th>First Album</th>
+                                        <th>Number of albums</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records">
+					<td>{{record.artist}}</td>
+					<td>{{record.start}}</td>
+					<td>{{record.firstAlbum}}</td>
+                                        <td>{{record.albums}}</td>
+					<td>
+						<button class="btn btn-default btn-sm" ng-click="musicCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+						<button class="btn btn-default btn-sm" ng-click="musicCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="musicCtrl.editMode">
+		<form name="countryForm" role="form">
+			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+			<div class="form-group">
+				<label for="name">Band/Artist</label>
+				<input id="name" class="form-control" type="text" ng-model="currentRecord.artist"/>
+			</div>
+			<div class="input-append date" id="start" data-date="2015-01-31" data-date-format="dd-mm-yyyy">
+                            <label for='start'>Started on</label> 
+                            <input id="start" class="span2" size="16" type="date" value="2015-01-31" data-date-format="dd-mm-yyyy" start. ng-model="currentRecord.start" required>
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+			<div class="form-group">
+				<label for="firstAlbum">First Album</label>
+				<input id="firstAlbum" class="form-control" type="text" ng-model="currentRecord.firstAlbum"/>
+			</div>
+                        <div class="form-group">
+				<label for="albums">Albums</label>
+				<input id="albums" class="form-control" type="number" ng-model="currentRecord.albums"/>
+			</div>
+		</form>
+	</div>
+</div>

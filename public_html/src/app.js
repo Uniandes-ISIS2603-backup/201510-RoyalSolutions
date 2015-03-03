@@ -48,7 +48,7 @@
                     }).otherwise('/');
             }]);
         
-        //Configuración módulo login
+        //Configuración módulo home
 	var homeModule = angular.module('homeModule', ['CrudModule', 'MockModule']);
 
 	homeModule.constant('home.context', 'home');
@@ -63,5 +63,19 @@
                     }).otherwise('/');
             }]);
             
+            
+            var registrarModule = angular.module('registrarModule', ['CrudModule', 'MockModule']);
+
+	registrarModule.constant('registrar.context', 'registrar');
+
+	registrarModule.config(['registrar.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
+            mainApp.config(['$routeProvider', function ($routeProvider) {
+                    $routeProvider.when('/registrar', {
+                            templateUrl: 'src/modules/registrar/registrar.html'
+                    }).otherwise('/');
+            }]);
        
 })();

@@ -5,18 +5,15 @@
             this.url = context;
             CRUDUtils.extendCtrl(this, $scope);
             this.fetchRecords();
-        }]);
-    
+             
     this.reg = function () {
         var nombreMundo = $scope.us.nombre;
-        var mailMundo = $scope.us.nombre;
-        var pass1mundo = $scope.us.nombre;
-        var pass2mundo = $scope.us.nombre;
-        if(pass1mundo != pass2mundo)
+        var mailMundo = $scope.us.mail;
+        var pass1mundo = $scope.us.password;
+        var pass2mundo = $scope.us.cpassword;
+        if(pass1mundo !== pass2mundo)
         {
-            alert("No coinciden los password")
+            alert("No coinciden los password");
         }
-                            var date = $filter('date')($scope.user.dia,"dd '-' MMMM '-' yyyy");
-                            $scope.mensaje= "El usuario " + $scope.user.firstName + " " + $scope.user.lastName+" nació el "+date
-			};
+        		}}]);
 })();

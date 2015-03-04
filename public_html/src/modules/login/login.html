@@ -282,8 +282,7 @@
     </div>
 
     <div class="container" ng-show="userCtrl.editMode">
-        <div class="main">
-            <form class="form" onSubmit="userCtrl.reg()">
+        <form class="form" ng-submit="userCtrl.reg()">
                 <h2>Registrarse</h2>
                 <label>Name :</label>
                 <input type="text" name="dname" id="name" ng-model="us.nombre"required>
@@ -293,8 +292,7 @@
                 <input type="password" name="password" id="password" ng-model="us.password"required>
                 <label>Confirm Password :</label>
                 <input type="password" name="cpassword" id="cpassword" ng-model = "us.cpassword" required>
-                <input type="submit" value="Registrar">
+                <input type="submit" value="Registrar"  >
             </form>
-        </div>
     </div>
 </div>

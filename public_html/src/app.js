@@ -26,18 +26,14 @@
         
          //Configuración módulo music
 	var musicModule = angular.module('musicModule', ['CrudModule', 'MockModule']);
-
 	musicModule.constant('music.context', 'music');
-
 	musicModule.config(['music.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
             
         //Configuración módulo login
 	var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);
-
 	loginModule.constant('login.context', 'login');
-
 	loginModule.config(['login.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
@@ -50,32 +46,13 @@
         
         //Configuración módulo home
 	var homeModule = angular.module('homeModule', ['CrudModule', 'MockModule']);
-
 	homeModule.constant('home.context', 'home');
-
 	homeModule.config(['home.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
-            
             mainApp.config(['$routeProvider', function ($routeProvider) {
                     $routeProvider.when('/home', {
                             templateUrl: 'src/modules/home/home.html'
                     }).otherwise('/');
-            }]);
-            
-            
-            var registrarModule = angular.module('registrarModule', ['CrudModule', 'MockModule']);
-
-	registrarModule.constant('registrar.context', 'registrar');
-
-	registrarModule.config(['registrar.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
-			urlsProvider.registerUrl(context);
-		}]);
-            
-            mainApp.config(['$routeProvider', function ($routeProvider) {
-                    $routeProvider.when('/registrar', {
-                            templateUrl: 'src/modules/registrar/registrar.html'
-                    }).otherwise('/');
-            }]);
-       
+            }]);     
 })();

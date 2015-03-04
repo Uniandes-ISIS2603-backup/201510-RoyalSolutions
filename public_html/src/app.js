@@ -1,6 +1,7 @@
 (function () {
 
-	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'musicModule','loginModule','homeModule']);
+	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'itineraryModule','loginModule','homeModule']);
+        var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule']);
         
 	mainApp.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider.when('/sport', {
@@ -18,16 +19,16 @@
 		}]);
              
             
-        mainApp.config(['$routeProvider', function ($routeProvider) {
-                    $routeProvider.when('/music', {
-                            templateUrl: 'src/modules/music/music.tpl.html'
+        itinerario.config(['$routeProvider', function ($routeProvider) {
+                    $routeProvider.when('/itinerary', {
+                            templateUrl: 'src/modules/itinerario/itinerary.tpl.html'
                     }).otherwise('/');
             }]);
         
-         //Configuración módulo music
-	var musicModule = angular.module('musicModule', ['CrudModule', 'MockModule']);
-	musicModule.constant('music.context', 'music');
-	musicModule.config(['music.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+         //Configuración módulo itinerary
+	var itineraryModule = angular.module('itineraryModule', ['CrudModule', 'MockModule']);
+	itineraryModule.constant('itinerary.context', 'itinerary');
+	itineraryModule.config(['itinerary.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
             

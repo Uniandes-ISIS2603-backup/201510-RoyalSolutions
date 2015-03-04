@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="itinerario">
 <head>
 <title>Itinerario</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="src/assets/css/reset.css" type="text/css" media="all">
 <link rel="stylesheet" href="src/assets/css/layout.css" type="text/css" media="all">
 <link rel="stylesheet" href="src/assets/css/style.css" type="text/css" media="all">
@@ -10,6 +10,21 @@
 <script type="text/javascript" src="src/js/cufon-yui.js"></script>
 <script type="text/javascript" src="src/js/cufon-replace.js"></script>  
 <script type="text/javascript" src="src/js/Myriad_Pro_600.font.js"></script>
+<link href="src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<script src="src/assets/libs/jquery-1.11.2.min.js"></script>
+<script src="src/assets/libs/underscore-min.js"></script>
+<script src="src/assets/libs/angular.min.js"></script>
+<script src="src/assets/libs/angular-mocks.js"></script>
+<script src="src/assets/libs/angular-route.min.js"></script>
+<script src="src/assets/libs/restangular.min.js"></script>
+
+<script src="src/app.js"></script>
+
+<script src="src/shared/crud/crud.mod.js"></script>
+<script src="src/shared/crud/crud.svc.js"></script>
+<script src="src/shared/mocks/mock.mod.js"></script>
+<script src="src/shared/mocks/mock.svc.js"></script>
+<script src="src/modules/itinerario/itinerary.ctrl.js"></script>
 <!--[if lt IE 9]>
 	<script type="text/javascript" src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script>
 	<script type="text/javascript" src="js/html5.js"></script>
@@ -91,33 +106,17 @@
 					<article class="col3">
 						<div class="wrapper">
 							<figure class="left marg_right1"><img src="src/images/page3_img1.jpg" alt=""></figure>
-							<p><strong>Cada usuario de "Royal Vacations" tiene la opcion de crear un itinerario de viaje;</strong> en esté podra agregar eventos a los que quiera asistir, reservas de hoteles,</p>
-							<p>y viajes.(Atención: las reservas a hoteles y viajes no se pueden hacer desde la pagina de Royal vacations, y mucho menos se pueden comprar desde esta)
+							<p><strong>Cada usuario de "Royal Vacations" tiene la opcion de crear un itinerario de viaje;</strong> en esté podra agregar eventos a los que quiera asistir, reservas  hoteles,</p>
+							<p>y viajes.<strong>(Atención: las reservas a hoteles y viajes no se pueden hacer desde la pagina de Royal vacations, y mucho menos se pueden comprar desde esta)</strong>
 						</div>
-					</article>
-					<article class="cols pad_left1">
-						<ul class="list1">
-							<li><a href="#">At vero eos et accusamus et</a></li>
-							<li><a href="#">Gusto odio dignissimos ducimus </a></li>
-							<li><a href="#">Blanditiis praesentium volupta</a></li>
-							<li><a href="#">Tum deleniti atque corrupti</a></li>
-							<li><a href="#">Quos dolores et quas molestias</a></li>
-							<li><a href="#">Excepturi sint occaecati</a></li>
-							<li><a href="#">Cupiditate non provident, simil</a></li>
-							<li><a href="#">Ique sunt in culpa qui officia</a></li>
-							<li><a href="#">Deserunt mollitia animi, id est</a></li>
-							<li><a href="#">Laborum et dolorum fuga</a></li>
-							<li><a href="#">Et harum quidem rerum facilis </a></li>
-							<li><a href="#">Est et expedita distinctio</a></li>
-							<li><a href="#">Nam libero tempore, cum soluta</a></li>
-							<li><a href="#">Nobis est eligendi optio</a></li>
-							<li><a href="#">Cumque nihil impedit quo</a></li>
-							<li><a href="#">Minus id quod maxime placeat</a></li>
-							<li><a href="#">Facere possimus, omnis</a></li>
-							<li><a href="#">Voluptas assumenda est</a></li>
-							<li><a href="#">Omnis dolor repellendus emp</a></li>
-							<li><a href="#">Pribus autem quibusdam</a></li>
-						</ul>
+                                            <div class="col-md-10">
+                                            <ul class="nav nav-pills nav-stacked">
+                                                    <li><a href="#/itinerary">Mis itinerarios</a></li>
+                                            </ul>
+                                        </div>
+                                            <div class="col-md-30">
+				<div ng-view></div>
+			</div>
 					</article>
 				</div>
 			</article>

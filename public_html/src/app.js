@@ -1,20 +1,20 @@
 (function () {
 
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'itineraryModule','loginModule','homeModule']);
-        var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule']);
+        var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'aEventoModule']);
         
-	mainApp.config(['$routeProvider', function ($routeProvider) {
-			$routeProvider.when('/sport', {
-				templateUrl: 'src/modules/sport/sport.tpl.html'
+	itinerario.config(['$routeProvider', function ($routeProvider) {
+			$routeProvider.when('/aEvento', {
+				templateUrl: 'src/modules/itinerario/aEvento.tpl.html'
 			}).otherwise('/');
 		}]);
 
 	//Configuración módulo sport
-	var sportModule = angular.module('sportModule', ['CrudModule', 'MockModule']);
+	var aEventoModule = angular.module('aEventoModule', ['CrudModule', 'MockModule']);
 
-	sportModule.constant('sport.context', 'sports');
+	aEventoModule.constant('aEvento.context', 'aEvento');
 
-	sportModule.config(['sport.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	aEventoModule.config(['aEvento.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
              

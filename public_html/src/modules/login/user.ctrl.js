@@ -15,7 +15,7 @@
                 {
                     alert("No coinciden los password");
                 }
-                else if (mailMundo.includes("@") == false)
+                else if (mailMundo.includes("@") === false)
                 {
                     alert("Mail no valido");
                 }
@@ -24,9 +24,9 @@
                     var arreglo = $scope.records;
                     for (i = 0; i < arreglo.length; i++)
                     {
-                        if (arreglo[i].nombre == nombreMundo)
+                        if (arreglo[i].nombre === nombreMundo)
                         {
-                            alert("Debe cambiar de usuario.")
+                            alert("Debe cambiar de usuario.");
                         }
                     }
                 }
@@ -38,16 +38,16 @@
             }
             
             this.login = function () {
-                if($scope.usuarioing=="admin")
+                if($scope.usuarioing==="admin")
                 {
-                    if($scope.passing=="admin")
+                    if($scope.passing==="admin")
                     {
-                        alert("Es administrador")
+                        alert("Es administrador");
                     }
                 }
                 else if ($scope.records.length > 0)
                 {
-                   alert("No existe el usuario")
+                   alert("No existe el usuario");
                 }
                 else
                 {
@@ -55,9 +55,9 @@
                     var existe = false;
                     for (i = 0; i < arreglo.length; i++)
                     {
-                        if (arreglo[i].nombre == $scope.usuarioing)
+                        if (arreglo[i].nombre === $scope.usuarioing)
                         {
-                            if(arreglo[i].password == $scope.passing){
+                            if(arreglo[i].password === $scope.passing){
                                 alert("Usuario logeado");
                                 existe = true;
                             }
@@ -67,12 +67,10 @@
                             }
                         }
                     }
-                    if(existe==false)
+                    if(existe===false)
                     {
                         alert("No existe usuario");
                     }
-                    userCtrl.createRecord();
-                    userCtrl.saveRecord();
                 }
             }
         }]);

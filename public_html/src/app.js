@@ -2,6 +2,8 @@
 
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'itineraryModule','loginModule','homeModule']);
         var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'aEventoModule']);
+        var ciudad = angular.module('ciudad', ['ngRoute', 'ciudadModule']);
+
         
 	itinerario.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider.when('/aEvento', {
@@ -31,6 +33,19 @@
 	itineraryModule.config(['itinerary.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
+        
+         //Configuración módulo ciudad
+	var ciudadModule = angular.module('ciudadModule', ['CrudModule', 'MockModule']);
+	ciudadModule.constant('ciudad.context', 'ciudad');
+	ciudadModule.config(['ciudad.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
+        ciudad.config(['$routeProvider', function ($routeProvider) {
+                    $routeProvider.when('/ciudad', {
+                            templateUrl: 'src/modules/ciudad/ciudad.tpl.html'
+                    }).otherwise('/');
+            }]);
             
         //Configuración módulo login
 	var loginModule = angular.module('loginModule', ['CrudModule', 'MockModule']);

@@ -33,6 +33,7 @@
                 }
                 else
                 {
+                    var currentRecord = $scope.currentRecord;
                     $scope.records.push(currentRecord);
                 }
             }

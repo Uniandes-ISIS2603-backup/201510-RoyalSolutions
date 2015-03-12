@@ -39,6 +39,7 @@
             }
             
             this.login = function () {
+//                
                 if($scope.usuarioing==="admin")
                 {
                     if($scope.passing==="admin")

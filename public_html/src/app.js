@@ -4,7 +4,8 @@
         var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'aEventoModule']);
         var ciudad = angular.module('ciudad', ['ngRoute', 'ciudadModule']);
 
-        mainApp.config(['$routeProvider', function ($routeProvider) {
+
+        mainApp.config(['$routeProvider', function  ($routeProvider) {
 			$routeProvider.when('/sport', {
 				templateUrl: 'src/modules/sport/sport.tpl.html'
 			}).otherwise('/');

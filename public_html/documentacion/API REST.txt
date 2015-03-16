@@ -1,0 +1,52 @@
+GET/modules/*file                                             
+
+#Crear itinerario
+POST /itinerarios Parámetro: {“nombre”:“nombre_it”}
+
+#Dar itinerario
+GET/itinerarios/:nombre_it
+
+#Borrar itinerario
+DELETE/itinerarios/:nombre_it
+
+#Actualizar itinerario
+PUT /itinerarios/:nombre_it Parámetro: {“nombre”:“nombre_it2”}
+
+#Agregar servicio a itinerario
+POST /itinerarios/servicios Parámetro: {“nombre”:“nombre_ev”, “fecha”:”01/01/1111”, “tipo”:”evento”, “ciudad”:” nombre_ciu”}
+
+#Dar servicio de itinerario
+GET/itinerarios/servicios/:nombre_ev
+
+#Borrar servicio de itinerario
+DELETE/itinerarios/servicios/:nombre_ev
+
+#Actualizar evento de itinerario
+PUT /itinerarios servicios/:nombre_ev Parámetro: {“nombre”:“nombre_ev2”, “fecha”:”01/01/1111”, “tipo”:”evento”, “ciudad”:” nombre_ciu”}
+
+#Agregar ciudad
+POST /ciudades Parámetro: {“nombre”:“nombre_ciu”, “país”:”nombre_pais”}
+
+#Dar ciudad
+GET/ciudades/:nombre_ciu
+
+#Borrar ciudad
+DELETE/ciudades/:nombre_ciu
+
+#Actualizar ciudad
+PUT /ciudades/:nombre_ciu Parámetro: {“nombre”:“nombre_ciu2”, “país”:”nombre_pais”}
+
+#Registrarse
+POST/usuarios Parámetro: {“nombre”:“nombre_us”, “email”:”email_us”, ”password”:”pass_us”}
+
+#Calificar
+POST/calificaciones Parámetro: {“servicio”:“nombre_se”, “tipo”:”tipo_se”, ”calificacion”:”cal_se”}
+
+#Dar calificación 
+GET/calificaciones/:nombre_se
+
+#Cambiar calificación
+PUT/calificaciones/:nombre_se Parámetro: {“servicio”:“nombre_se”, “tipo”:”tipo_se”, ”calificacion”:”cal_se2”}
+
+#Borrar calificación
+DELETE/calificaciones/:nombre_se

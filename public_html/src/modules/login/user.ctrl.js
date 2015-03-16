@@ -6,11 +6,11 @@
             CRUDUtils.extendCtrl(this, $scope);
             this.fetchRecords();
 
-            this.reg = function () {
-                var nombreMundo = $scope.currentRecord.nombre;
-                var mailMundo = $scope.currentRecord.mail;
-                var pass1mundo = $scope.currentRecord.password;
-                var pass2mundo = $scope.currentRecord.cpassword;
+            this.reg = function (user) {
+                var nombreMundo = user.nombre;
+                var mailMundo = user.mail;
+                var pass1mundo = user.password;
+                var pass2mundo = user.cpassword;
                 if (pass1mundo !== pass2mundo)
                 {
                     alert("No coinciden los password");
@@ -22,6 +22,7 @@
                 else if ($scope.records.length > 0)
                 {
                     var arreglo = $scope.records;
+                    
                     for (i = 0; i < arreglo.length; i++)
                     {
                         if (arreglo[i].nombre === nombreMundo)
@@ -32,12 +33,13 @@
                 }
                 else
                 {
-                    userCtrl.createRecord();
-                    userCtrl.saveRecord();
+                    var currentRecord = $scope.currentRecord;
+                    $scope.records.push(currentRecord);
                 }
             }
             
             this.login = function () {
+//                
                 if($scope.usuarioing==="admin")
                 {
                     if($scope.passing==="admin")
@@ -45,7 +47,7 @@
                         alert("Es administrador");
                     }
                 }
-                else if ($scope.records.length > 0)
+                else if ($scope.records.length === 0)
                 {
                    alert("No existe el usuario");
                 }
@@ -54,7 +56,9 @@
                     var arreglo = $scope.records;
                     var existe = false;
                     for (i = 0; i < arreglo.length; i++)
+                    
                     {
+                        alert(arreglo[i].mail +" "+arreglo[i].nombre);
                         if (arreglo[i].nombre === $scope.usuarioing)
                         {
                             if(arreglo[i].password === $scope.passing){

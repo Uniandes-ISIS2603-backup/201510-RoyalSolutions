@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="itinerario">
 <head>
+    
 <title>Itinerario</title>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="src/assets/css/reset.css" type="text/css" media="all">
 <link rel="stylesheet" href="src/assets/css/layout.css" type="text/css" media="all">
@@ -17,19 +19,20 @@
 <script src="src/assets/libs/angular-mocks.js"></script>
 <script src="src/assets/libs/angular-route.min.js"></script>
 <script src="src/assets/libs/restangular.min.js"></script>
-
 <script src="src/app.js"></script>
-
 <script src="src/shared/crud/crud.mod.js"></script>
 <script src="src/shared/crud/crud.svc.js"></script>
 <script src="src/shared/mocks/mock.mod.js"></script>
 <script src="src/shared/mocks/mock.svc.js"></script>
 <script src="src/modules/itinerario/itinerary.ctrl.js"></script>
 <script src="src/modules/itinerario/aEvento.ctrl.js"></script>
-<!--[if lt IE 9]>
-	<script type="text/javascript" src="http://info.template-help.com/files/ie6_warning/ie6_script_other.js"></script>
-	<script type="text/javascript" src="js/html5.js"></script>
-<![endif]-->
+
+<style>
+    #display{
+        height:1000px;
+    } 
+</style>
+
 </head>
 <body id="page3">
 <div class="extra">
@@ -72,12 +75,12 @@
 			<div>
 				<h2>Crear un itinerario</h2>
 				<div>
-                                        <div class="col-md-50">
-                                            <ul class="nav nav-pills nav-stacked">
-                                                    <li><a href="#/itinerary">Mis itinerarios</a></li>
-                                            </ul>
+                                    <div>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li><a href="#/itinerary">Mis itinerarios</a></li>
+                                        </ul>
                                         </div>
-                                        <div class="col-md-50">
+                                        <div>
 				            <div ng-view></div>
 			                </div>
 				</div>

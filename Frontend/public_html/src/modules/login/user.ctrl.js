@@ -5,7 +5,6 @@
             this.url = context;
             CRUDUtils.extendCtrl(this, $scope);
             this.fetchRecords();
-//Probando guthub
 
             this.reg = function (user) {
                 var nombreMundo = user.nombre;

@@ -53,7 +53,7 @@ public class service
     }
 
     @PUT
-    public void updateItinerario(@PathParam("nombre") String nombre, @PathParam("pais") String pais, ciudadDTO itinerario) {
-        LogicService.updateCiudad(itinerario);
+    public void updateItinerario(@PathParam("nombre") String nombre, @PathParam("pais") String pais, ciudadDTO ciudad) {
+        LogicService.updateCiudad(ciudad);
     }
 }

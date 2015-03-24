@@ -9,15 +9,24 @@ package dto;
  *
  * @author estudiante
  */
-public class itinerarioDTO {
-    
-     private String nombre;
+public class ciudadDTO 
+{
+ private String nombre;
+ private String pais;
      
-       public String getName() {
+    public String getName() {
         return nombre;
     }
 
     public void setName(String name) {
-        this.nombre = nombre;
-    }    
+        this.nombre = name;
+    }
+    
+    public String getCountry() {
+        return pais;
+    }
+
+    public void setCountry(String name) {
+        this.pais = name;
+    }   
 }

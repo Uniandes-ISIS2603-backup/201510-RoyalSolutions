@@ -5,13 +5,24 @@
  */
 package api;
 
+import dto.CalificacionDTO;
+import java.util.List;
+
 /**
  *
  * @author dc.bonilla10 y solo rojo loka.
  */
 public interface CalificacionLogic {
     
-    public void postCalificacion(  ); 
+   public CalificacionDTO createCalificacion (CalificacionDTO detail);
+
+    public List<CalificacionDTO> getCalificaciones();
+
+    public CalificacionDTO getCalificacion(String pNombre);
+
+    public void deleteCalificacion(String pNombre);
+
+    public void updateCalificacion(CalificacionDTO detail);
     
     
 }

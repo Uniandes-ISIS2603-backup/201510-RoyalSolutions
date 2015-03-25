@@ -12,7 +12,7 @@
                 <div>
                     <input type="password" placeholder="Password"  id="password" ng-model="passing" required/>
                 </div>
-                <input type="submit" value="Login" >
+                <input type="submit" value="Iniciar Sesion" >
             </form>
         </section>
     </div>
@@ -21,16 +21,16 @@
         <form class="form" ng-submit="userCtrl.reg(currentRecord)">
             <input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
                 <h2>Registrarse</h2>
-                <label>Name :</label>
+                <label>Nombre :</label>
                 <input type="text"  id="name" ng-model="currentRecord.nombre"required>
                 <br>
-                <label>Email :</label>
+                <label>Correo:</label>
                 <input type="text" name="demail" id="email" ng-model="currentRecord.mail"required>
                 <br>
-                <label>Password :</label>
+                <label>Clave :</label>
                 <input type="password" id="password" ng-model="currentRecord.password"required>
                 <br>
-                <label>Confirm Password :</label>
+                <label>Confirmar Clave:</label>
                 <input type="password" name="cpassword" id="cpassword" ng-model = "currentRecord.cpassword" required>
                 <input type="submit" value="Registrar" >
             </form>

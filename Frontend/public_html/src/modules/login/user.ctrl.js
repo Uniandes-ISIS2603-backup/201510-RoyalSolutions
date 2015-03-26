@@ -77,5 +77,14 @@
                     }
                 }
             }
+            
+            this.cambioALogeo = function()
+            {
+                this.editMode = false;
+            }
+            this.cambioAReg = function()
+            {
+                this.editMode = true;
+            }
         }]);
 })();

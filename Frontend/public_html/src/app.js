@@ -86,4 +86,6 @@
                             templateUrl: 'src/modules/home/home.html'
                     }).otherwise('/');
             }]);     
+        
+          
 })();

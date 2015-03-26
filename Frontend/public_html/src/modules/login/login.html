@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="src/modules/login/user.ctrl.js"></script>
 <div ng-controller="userCtrl as userCtrl">
     <div class="container" id="c"ng-hide="userCtrl.editMode">
-        <section id="content">
-            <form action="/Itinerario.html" ng-submit="userCtrl.login()" >
+        <section id="content" >
+            <form action="#" ng-submit="userCtrl.login()" >
                 <h2>Login</h2>
                 <div>
                     <input type="text" placeholder="Username"   id="username" ng-model="usuarioing" required/>
@@ -12,12 +13,16 @@
                 </div>
                 <input type="submit" value="Iniciar Sesion" >
             </form>
-            <input type="submit" value="No Registrado? Registrate!" onclick="userCtrl.cambioAReg()" />
+            <form>
+             <button value="No Registrado? Registrate!" ng-click="userCtrl.cambioAReg()"> No Registrado? Registrate! </button>
+            </form>
+            
         </section>
         
     </div>
 
     <div class="container" id="wrapper" ng-show="userCtrl.editMode">
+        
         <form class="form" ng-submit="userCtrl.reg(currentRecord)">
             <input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
                 <h2>Registrarse</h2>
@@ -32,8 +37,10 @@
                 <br>
                 <label>Confirmar Clave:</label>
                 <input type="password" name="cpassword" id="cpassword" ng-model = "currentRecord.cpassword" required>
+                <br>
                 <input type="submit" value="Registrar" >
             </form>
-        <input   type="submit" value="No Registrado? Registrate!" onclick="userCtrl.cambioALogeo()" />
+         <input   type="submit" value="Ya Registrado? Inicia Sesión!" ng-click="userCtrl.cambioALogeo()"  />
+       
     </div>
 </div>

@@ -36,7 +36,7 @@
                     var currentRecord = $scope.currentRecord;
                     $scope.records.push(currentRecord);
                 }
-            }
+            };
             
             this.login = function () {
 //                
@@ -76,15 +76,15 @@
                         alert("No existe usuario");
                     }
                 }
-            }
+            };
             
             this.cambioALogeo = function()
             {
                 this.editMode = false;
-            }
+            };
             this.cambioAReg = function()
             {
                 this.editMode = true;
-            }
+            };
         }]);
 })();

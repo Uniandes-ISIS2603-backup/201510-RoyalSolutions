@@ -6,15 +6,17 @@
             <form action="#" ng-submit="userCtrl.login()" >
                 <h2>Login</h2>
                 <div>
-                    <input type="text" placeholder="Username"   id="username" ng-model="usuarioing" required/>
+                    <input class = "form-control" type="text" placeholder="Username"   id="username" ng-model="usuarioing" required/>
                 </div>
                 <div>
-                    <input type="password" placeholder="Password"  id="password" ng-model="passing" required/>
+                    <input class = "form-control" type="password" placeholder="Password"  id="password" ng-model="passing" required/>
                 </div>
-                <input type="submit" value="Iniciar Sesion" >
+                <input  class = "form-control" type="submit" value="Iniciar Sesion" >
             </form>
+            <br>
+            
             <form>
-             <button value="No Registrado? Registrate!" ng-click="userCtrl.cambioAReg()"> No Registrado? Registrate! </button>
+             <button class = "form-control" value="No Registrado? Registrate!" ng-click="userCtrl.cambioAReg()"> No Registrado? Registrate! </button>
             </form>
             
         </section>
@@ -27,20 +29,21 @@
             <input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
                 <h2>Registrarse</h2>
                 <label>Nombre :</label>
-                <input type="text"  id="name" ng-model="currentRecord.nombre"required>
-                <br>
+                <input class = "form-control" type="text"  id="name" ng-model="currentRecord.nombre"required>
+                
                 <label>Correo:</label>
-                <input type="text" name="demail" id="email" ng-model="currentRecord.mail"required>
-                <br>
+                <input class = "form-control" type="text" name="demail" id="email" ng-model="currentRecord.mail"required>
+                
                 <label>Clave :</label>
-                <input type="password" id="password" ng-model="currentRecord.password"required>
-                <br>
+                <input class = "form-control" type="password" id="password" ng-model="currentRecord.password"required>
+                
                 <label>Confirmar Clave:</label>
-                <input type="password" name="cpassword" id="cpassword" ng-model = "currentRecord.cpassword" required>
-                <br>
-                <input type="submit" value="Registrar" >
+                <input class = "form-control" type="password" name="cpassword" id="cpassword" ng-model = "currentRecord.cpassword" required>
+                
+                <input  class = "form-control" type="submit" value="Registrar" >
             </form>
-         <input   type="submit" value="Ya Registrado? Inicia Sesión!" ng-click="userCtrl.cambioALogeo()"  />
+            
+         <input class = "form-control"  type="submit" value="Ya Registrado? Inicia Sesión!" ng-click="userCtrl.cambioALogeo()"  />
        
     </div>
 </div>

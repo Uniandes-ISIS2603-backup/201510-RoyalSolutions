@@ -28,8 +28,8 @@ public class CiudadLogic
 		return CiudadConverter.entity2PersistenceDTO(entity);
 	}
 
-	public List<CiudadDTO> getCountries() {
-		Query q = entityManager.createQuery("select u from CountryEntity u");
+	public List<CiudadDTO> getCiudades() {
+		Query q = entityManager.createQuery("select u from CiudadEntity u");
 		return CiudadConverter.entity2PersistenceDTOList(q.getResultList());
 	}
 

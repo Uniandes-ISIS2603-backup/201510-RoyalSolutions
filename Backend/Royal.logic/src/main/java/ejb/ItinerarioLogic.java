@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class ItinerarioLogic 
 {
-    @PersistenceContext(unitName = "SportClassPU")
+    @PersistenceContext(unitName = "ItineratioClassPU")
     protected EntityManager entityManager;
 
     public ItinerarioDTO createItinerario(ItinerarioDTO country) {
@@ -28,8 +28,8 @@ public class ItinerarioLogic
         return ItinerarioConverter.entity2PersistenceDTO(entity);
     }
     
-    public List<ItinerarioDTO> getCountries() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+    public List<ItinerarioDTO> getItinerarios() {
+        Query q = entityManager.createQuery("select u from ItinerarioEntity u");
         return ItinerarioConverter.entity2PersistenceDTOList(q.getResultList());
     }
     

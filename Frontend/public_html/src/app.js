@@ -1,7 +1,7 @@
 (function () {
 
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'itineraryModule','loginModule','homeModule']);
-        var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'aEventoModule']);
+        var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'entretenimientoModule']);
         var ciudad = angular.module('ciudad', ['ngRoute', 'ciudadModule']);
         var calification = angular.module('calification', ['ngRoute', 'calificationModule']);
 
@@ -21,27 +21,23 @@
 			urlsProvider.registerUrl(context);
 		}]);
         
-	itinerario.config(['$routeProvider', function ($routeProvider) {
-			$routeProvider.when('/aEvento', {
-				templateUrl: 'src/modules/itinerario/aEvento.tpl.html'
-			}).otherwise('/');
-		}]);
+	
 
-	//Configuración módulo aEvento
-	var aEventoModule = angular.module('aEventoModule', ['CrudModule', 'MockModule']);
+	//Configuración módulo entretenimiento
+	var entretenimientoModule = angular.module('entretenimientoModule', ['CrudModule', 'MockModule']);
 
-	aEventoModule.constant('aEvento.context', 'aEvento');
+	entretenimientoModule.constant('entretenimiento.context', 'entretenimiento');
 
-	aEventoModule.config(['aEvento.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+	entretenimientoModule.config(['entretenimiento.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
              
-            
-        itinerario.config(['$routeProvider', function ($routeProvider) {
-                    $routeProvider.when('/itinerary', {
-                            templateUrl: 'src/modules/itinerario/itinerary.tpl.html'
-                    }).otherwise('/');
-            }]);
+         itinerario.config(['$routeProvider', function ($routeProvider) {
+			$routeProvider.when('/entretenimiento', {
+				templateUrl: 'src/modules/Entretenimiento/entretenimiento.tpl.html'
+			}).otherwise('/');
+		}]);   
+        
         
          //Configuración módulo itinerary
 	var itineraryModule = angular.module('itineraryModule', ['CrudModule', 'MockModule']);
@@ -49,6 +45,12 @@
 	itineraryModule.config(['itinerary.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
 			urlsProvider.registerUrl(context);
 		}]);
+            
+            itinerario.config(['$routeProvider', function ($routeProvider) {
+                    $routeProvider.when('/itinerary', {
+                            templateUrl: 'src/modules/itinerario/itinerary.tpl.html'
+                    }).otherwise('/');
+            }]);
         
          //Configuración módulo ciudad
 	var ciudadModule = angular.module('ciudadModule', ['CrudModule', 'MockModule']);

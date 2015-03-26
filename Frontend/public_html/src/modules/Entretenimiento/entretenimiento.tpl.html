@@ -15,10 +15,10 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="itinerary-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="aEventoCtrl.editMode" ng-click="aEventoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
-					<button class="btn btn-default navbar-btn" ng-hide="aEventoCtrl.editMode" ng-click="aEventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar</button>
-					<button class="btn btn-default navbar-btn" ng-show="aEventoCtrl.editMode" ng-click="aEventoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
-					<button class="btn btn-default navbar-btn" ng-show="aEventoCtrl.editMode" ng-click="aEventoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+					<button class="btn btn-default navbar-btn" ng-hide="entretenimientoCtrl.editMode" ng-click="entretenimientoCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Agregar</button>
+					<button class="btn btn-default navbar-btn" ng-hide="entretenimientoCtrl.editMode" ng-click="entretenimientoCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refrescar</button>
+					<button class="btn btn-default navbar-btn" ng-show="entretenimientoCtrl.editMode" ng-click="entretenimientoCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+					<button class="btn btn-default navbar-btn" ng-show="entretenimientoCtrl.editMode" ng-click="entretenimientoCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 				</div>
 			</div>
 		</nav>
@@ -41,8 +41,8 @@
                                         <td>{{record.tipo}}
                                         <td>{{record.ciudad}}
 					<td>
-						<button class="btn btn-default btn-sm" ng-click="aEventoCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
-						<button class="btn btn-default btn-sm" ng-click="aEventoCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Borrar</button>
+						<button class="btn btn-default btn-sm" ng-click="entretenimientoCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
+						<button class="btn btn-default btn-sm" ng-click="entretenimientoCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Borrar</button>
 					</td>
 				</tr>
 			</tbody>

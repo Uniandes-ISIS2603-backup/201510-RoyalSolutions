@@ -34,20 +34,7 @@ public class CalificacionDTO {
      * Atributo que modela el valor de la califiicacion
      */
     private double valor;
-    
-    //-----------------------------
-    //Constructor
-    //-----------------------------
-    
-    public CalificacionDTO(String pNombre, String pTipo, Date pFecha, double pValor)
-    {
-        nombre = pNombre;
-        tipo = pTipo;
-        fecha = pFecha;
-        valor = pValor;
-        
-    }
-    
+
     //Getters and setters
     
     public String getNombre()

@@ -26,7 +26,7 @@ public class servicioDTO
     }
 
     public void setName(String name) {
-        this.nombre = nombre;
+        this.nombre = name;
     }
     
       public Date getDate() {

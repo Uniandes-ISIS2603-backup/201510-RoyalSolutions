@@ -3,17 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dto;
+package entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author estudiante
  */
-public class CalificacionDTO {
+public class CalificacionEntity {
     
-    /**
+    @Id
+    @GeneratedValue(generator = "Calificacion")
+    
+     /**
      * Atributo que modela el nombre del servicio a calificar
      */
     private String nombre;
@@ -34,19 +40,6 @@ public class CalificacionDTO {
      * Atributo que modela el valor de la califiicacion
      */
     private double valor;
-    
-    //-----------------------------
-    //Constructor
-    //-----------------------------
-    
-    public CalificacionDTO(String pNombre, String pTipo, Date pFecha, double pValor)
-    {
-        nombre = pNombre;
-        tipo = pTipo;
-        fecha = pFecha;
-        valor = pValor;
-        
-    }
     
     //Getters and setters
     

@@ -3,14 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dto;
+package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 /**
  *
  * @author estudiante
  */
-public class UsuarioDTO 
+public class UsuarioEntity
 {
+     @Id
+    @GeneratedValue(generator = "Usuario")
+     
     private String username;
    
     private String password;
@@ -29,5 +35,5 @@ public class UsuarioDTO
     
       public String getPassword() {
         return password;
-    }    
+    }      
 }

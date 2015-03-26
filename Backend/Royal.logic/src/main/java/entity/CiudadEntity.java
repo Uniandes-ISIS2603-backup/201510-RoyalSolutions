@@ -3,15 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dto;
+package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 /**
  *
  * @author estudiante
  */
-public class CiudadDTO 
+public class CiudadEntity
 {
- private String nombre;
+    @Id
+    @GeneratedValue(generator = "Ciudad")
+    
+    private String nombre;
  private String pais;
      
     public String getName() {

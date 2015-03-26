@@ -9,8 +9,8 @@ package dto;
  *
  * @author estudiante
  */
-public class itinerarioDTO {
-    
+public class ItinerarioDTO 
+{
      private String nombre;
      
        public String getName() {
@@ -18,6 +18,6 @@ public class itinerarioDTO {
     }
 
     public void setName(String name) {
-        this.nombre = nombre;
+        this.nombre = name;
     }    
 }

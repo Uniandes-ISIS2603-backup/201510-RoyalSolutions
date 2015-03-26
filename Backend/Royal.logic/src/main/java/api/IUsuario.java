@@ -6,16 +6,16 @@
 package api;
 
 import java.util.List;
-import dto.usuarioDTO;
+import dto.UsuarioDTO;
 /**
  *
  * @author estudiante
  */
 public interface IUsuario 
 {
-    public usuarioDTO createUsuario(usuarioDTO detail);
+    public UsuarioDTO createUsuario(UsuarioDTO detail);
 
-    public List<usuarioDTO> getUsuarios();
+    public List<UsuarioDTO> getUsuarios();
 
-    public usuarioDTO getUsuario(String pNombre);   
+    public UsuarioDTO getUsuario(String pNombre);   
 }

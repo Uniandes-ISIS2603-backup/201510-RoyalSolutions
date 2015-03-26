@@ -6,7 +6,7 @@
 package usuario;
 
 import api.IUsuario;
-import dto.usuarioDTO;
+import dto.UsuarioDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -33,13 +33,13 @@ public class service
     protected IUsuario LogicService;
 
     @POST
-    public usuarioDTO createUsuario(usuarioDTO usuario) {
+    public UsuarioDTO createUsuario(UsuarioDTO usuario) {
         return LogicService.createUsuario(usuario);
     }
 
     @GET
     @Path("{nombre}")
-    public usuarioDTO getItineario(@PathParam("nombre") String nombre) {
+    public UsuarioDTO getItineario(@PathParam("nombre") String nombre) {
         return LogicService.getUsuario(nombre);
     }
 }

@@ -6,8 +6,8 @@
 package api;
 
 import java.util.List;
-import dto.itinerarioDTO;
-import dto.servicioDTO;
+import dto.ItinerarioDTO;
+import dto.ServicioDTO;
 
 /**
  *
@@ -15,21 +15,21 @@ import dto.servicioDTO;
  */
 public interface IItinerarioLogic 
 {
-    public itinerarioDTO createItinerario(itinerarioDTO detail);
+    public ItinerarioDTO createItinerario(ItinerarioDTO detail);
 
-    public List<itinerarioDTO> getItinerarios();
+    public List<ItinerarioDTO> getItinerarios();
 
-    public itinerarioDTO getItinerario(String pNombre);
+    public ItinerarioDTO getItinerario(String pNombre);
 
     public void deleteItinerario(String pNombre);
 
-    public void updateItinerario(itinerarioDTO detail);
+    public void updateItinerario(ItinerarioDTO detail);
     
-    public servicioDTO createServicio(servicioDTO detailS, itinerarioDTO detailI);
+    public ServicioDTO createServicio(ServicioDTO detailS, ItinerarioDTO detailI);
     
-    public List<servicioDTO> getServicios(itinerarioDTO detailI);
+    public List<ServicioDTO> getServicios(ItinerarioDTO detailI);
     
-    public void updateServicio(servicioDTO detail);
+    public void updateServicio(ServicioDTO detail);
     
     public void deleteServicio(String pNombre);    
 }

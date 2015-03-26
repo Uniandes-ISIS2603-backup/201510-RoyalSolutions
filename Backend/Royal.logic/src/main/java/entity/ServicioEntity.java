@@ -3,16 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dto;
+package entity;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author estudiante
  */
-public class ServicioDTO 
+public class ServicioEntity
 {
+    @Id
+    @GeneratedValue(generator = "Servicio")
+    
     private String nombre;
     
     private Date fecha;
@@ -51,5 +57,5 @@ public class ServicioDTO
 
     public void setCity(String ciudad) {
         this.ciudad = ciudad;
-    }
+    }    
 }

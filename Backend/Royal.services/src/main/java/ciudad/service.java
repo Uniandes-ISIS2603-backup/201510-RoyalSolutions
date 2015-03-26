@@ -6,7 +6,7 @@
 package ciudad;
 
 import api.CiudadLogic;
-import dto.ciudadDTO;
+import dto.CiudadDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -35,7 +35,7 @@ public class service
     protected CiudadLogic LogicService;
 
     @POST
-    public ciudadDTO createCiudad(ciudadDTO ciudad) {
+    public CiudadDTO createCiudad(CiudadDTO ciudad) {
         return LogicService.createCiudad(ciudad);
     }
 
@@ -48,12 +48,12 @@ public class service
 
     @GET
     @Path("{nombre}")
-    public ciudadDTO getItineario(@PathParam("nombre") String nombre) {
+    public CiudadDTO getItineario(@PathParam("nombre") String nombre) {
         return LogicService.getCiudad(nombre);
     }
 
     @PUT
-    public void updateItinerario(@PathParam("nombre") String nombre, @PathParam("pais") String pais, ciudadDTO ciudad) {
+    public void updateItinerario(@PathParam("nombre") String nombre, @PathParam("pais") String pais, CiudadDTO ciudad) {
         LogicService.updateCiudad(ciudad);
     }
 }

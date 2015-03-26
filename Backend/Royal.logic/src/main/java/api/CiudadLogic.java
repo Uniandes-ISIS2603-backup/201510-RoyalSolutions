@@ -6,7 +6,7 @@
 package api;
 
 import java.util.List;
-import dto.ciudadDTO;
+import dto.CiudadDTO;
 
 /**
  *
@@ -14,13 +14,13 @@ import dto.ciudadDTO;
  */
 public interface CiudadLogic 
 {
-    public ciudadDTO createCiudad(ciudadDTO detail);
+    public CiudadDTO createCiudad(CiudadDTO detail);
 
-    public List<ciudadDTO> getCiudades();
+    public List<CiudadDTO> getCiudades();
 
-    public ciudadDTO getCiudad(String pNombre);
+    public CiudadDTO getCiudad(String pNombre);
 
     public void deleteCiudad(String pNombre);
 
-    public void updateCiudad(ciudadDTO detail);
+    public void updateCiudad(CiudadDTO detail);
 }

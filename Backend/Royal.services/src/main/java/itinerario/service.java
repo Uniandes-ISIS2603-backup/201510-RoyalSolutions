@@ -6,8 +6,8 @@
 package itinerario;
 
 import api.IItinerarioLogic;
-import dto.itinerarioDTO;
-import dto.servicioDTO;
+import dto.ItinerarioDTO;
+import dto.ServicioDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -36,7 +36,7 @@ public class service
     protected IItinerarioLogic LogicService;
 
     @POST
-    public itinerarioDTO createItinerario(itinerarioDTO itinerario) {
+    public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) {
         return LogicService.createItinerario(itinerario);
     }
 
@@ -49,28 +49,28 @@ public class service
 
     @GET
     @Path("{nombre}")
-    public itinerarioDTO getItineario(@PathParam("nombre") String nombre) {
+    public ItinerarioDTO getItineario(@PathParam("nombre") String nombre) {
         return LogicService.getItinerario(nombre);
     }
 
     @PUT
-    public void updateItinerario(@PathParam("nombre") String nombre, itinerarioDTO itinerario) {
+    public void updateItinerario(@PathParam("nombre") String nombre, ItinerarioDTO itinerario) {
         LogicService.updateItinerario(itinerario);
     }
     
     @POST
-    public servicioDTO createServicio(servicioDTO servicio, itinerarioDTO itinerario) {
+    public ServicioDTO createServicio(ServicioDTO servicio, ItinerarioDTO itinerario) {
         return LogicService.createServicio(servicio, itinerario);
     }
     
      @GET
     @Path("{nombre}")
-    public List<servicioDTO> getServicios(itinerarioDTO itinerario) {
+    public List<ServicioDTO> getServicios(ItinerarioDTO itinerario) {
         return LogicService.getServicios(itinerario);
     }
     
      @PUT
-    public void updateServicio(@PathParam("nombre") String nombre, servicioDTO servicio) {
+    public void updateServicio(@PathParam("nombre") String nombre, ServicioDTO servicio) {
         LogicService.updateServicio(servicio);
     }
     

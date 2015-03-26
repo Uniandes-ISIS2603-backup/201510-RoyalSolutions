@@ -39,7 +39,7 @@
 					<td>{{record.nombre}}
                                         <td>{{record.fecha}}
                                         <td>{{record.tipo}}
-                                        <td>{{record.Calificacion}}
+                                        <td>{{record.calificacion}}
 					<td>
 						<button class="btn btn-default btn-sm" ng-click="calificationCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Editar</button>
 						<button class="btn btn-default btn-sm" ng-click="calificationCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Borrar</button>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group">
 				<label for="name">Calificacion</label>
-				<input id="name" class="form-control" type="text" ng-model="currentRecord.ciudad"/>
+				<input id="name" class="form-control" type="text" ng-model="currentRecord.calificacion"/>
 			</div>
 		</form>
 	</div>

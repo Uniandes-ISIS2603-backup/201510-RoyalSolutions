@@ -3,6 +3,7 @@
 	var mainApp = angular.module('mainApp', ['ngRoute', 'sportModule', 'itineraryModule','loginModule','homeModule']);
         var itinerario = angular.module('itinerario', ['ngRoute', 'itineraryModule', 'aEventoModule']);
         var ciudad = angular.module('ciudad', ['ngRoute', 'ciudadModule']);
+        var calification = angular.module('calification', ['ngRoute', 'calificationModule']);
 
 
         mainApp.config(['$routeProvider', function  ($routeProvider) {
@@ -59,6 +60,19 @@
         ciudad.config(['$routeProvider', function ($routeProvider) {
                     $routeProvider.when('/ciudad', {
                             templateUrl: 'src/modules/ciudad/ciudad.tpl.html'
+                    }).otherwise('/');
+            }]);
+        
+        //Configuración módulo calificacion
+	var ciudadModule = angular.module('calificationModule', ['CrudModule', 'MockModule']);
+	ciudadModule.constant('calification.context', 'calification');
+	ciudadModule.config(['calification.context', 'MockModule.urlsProvider', function (context, urlsProvider) {
+			urlsProvider.registerUrl(context);
+		}]);
+            
+        calification.config(['$routeProvider', function ($routeProvider) {
+                    $routeProvider.when('/calification', {
+                            templateUrl: 'src/modules/calification/calification.tpl.html'
                     }).otherwise('/');
             }]);
             

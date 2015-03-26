@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <div ng-controller="userCtrl as userCtrl">
-    <div ng-controller="userCtrl as userCtrl" class="container" id="c"ng-hide="userCtrl.editMode">
+    <div class="container" id="c"ng-hide="userCtrl.editMode">
         <section id="content">
             <form action="/Itinerario.html" ng-submit="userCtrl.login()" >
                 <h2>Login</h2>
@@ -34,6 +34,6 @@
                 <input type="password" name="cpassword" id="cpassword" ng-model = "currentRecord.cpassword" required>
                 <input type="submit" value="Registrar" >
             </form>
-        <input  ng-controller="userCtrl as userCtrl" type="submit" value="No Registrado? Registrate!" onclick="userCtrl.cambioALogeo()" />
+        <input   type="submit" value="No Registrado? Registrate!" onclick="userCtrl.cambioALogeo()" />
     </div>
 </div>

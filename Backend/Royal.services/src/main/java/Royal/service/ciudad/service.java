@@ -5,8 +5,8 @@
  */
 package ciudad;
 
-import api.CiudadLogic;
-import dto.CiudadDTO;
+import Royal.ciudad.logic.api.CiudadLogic;
+import Royal.ciudad.logic.dto.CiudadDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

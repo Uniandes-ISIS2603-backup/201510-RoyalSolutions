@@ -5,9 +5,9 @@
  */
 package itinerario;
 
-import api.IItinerarioLogic;
-import dto.ItinerarioDTO;
-import dto.ServicioDTO;
+import Royal.itinerario.logic.api.IItinerarioLogic;
+import Royal.itinerario.logic.dto.ItinerarioDTO;
+import Royal.servicio.logic.dto.ServicioDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

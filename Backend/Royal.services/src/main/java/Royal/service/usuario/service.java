@@ -5,8 +5,8 @@
  */
 package usuario;
 
-import api.IUsuario;
-import dto.UsuarioDTO;
+import Royal.usuario.logic.api.IUsuario;
+import Royal.usuario.logic.dto.UsuarioDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

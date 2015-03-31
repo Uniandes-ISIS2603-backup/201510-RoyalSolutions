@@ -5,8 +5,8 @@
  */
 package calificacion;
 
-import api.CalificacionLogic;
-import dto.CalificacionDTO;
+import Royal.calificacion.logic.api.CalificacionLogic;
+import Royal.calificacion.logic.dto.CalificacionDTO;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;

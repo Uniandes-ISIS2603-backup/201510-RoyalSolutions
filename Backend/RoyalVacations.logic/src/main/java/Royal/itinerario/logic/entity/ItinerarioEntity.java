@@ -5,6 +5,7 @@
  */
 package Royal.itinerario.logic.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,8 +16,13 @@ import javax.persistence.Id;
  */
 public class ItinerarioEntity 
 {
-    @Id
+    
     @GeneratedValue(generator = "Itinerario")
+    
+    
+    @Id
+    @Column (name = "ITINERARIO_ID")
+    private Long id;
     
     private String nombre;
      
@@ -29,4 +35,11 @@ public class ItinerarioEntity
     {
         this.nombre = name;
     }    
+     public Long getId() {
+        return id;
+    }
+
+    public void setId(Long pid) {
+        this.id = pid;
+    }
 }

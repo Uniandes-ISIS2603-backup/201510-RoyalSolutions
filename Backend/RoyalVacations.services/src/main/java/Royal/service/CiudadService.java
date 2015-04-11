@@ -5,9 +5,10 @@
  */
 package Royal.service;
 
-import Royal.ciudad.logic.api.CiudadLogic;
+import Royal.ciudad.logic.api.ICiudadLogic;
 import Royal.ciudad.logic.dto.CiudadDTO;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -26,13 +27,14 @@ import javax.ws.rs.core.MediaType;
  */
 
 @Path("/ciudad")
+@Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
 public class CiudadService
 {
    @Inject
-    protected CiudadLogic LogicService;
+    protected ICiudadLogic LogicService;
 
     @POST
     public CiudadDTO createCiudad(CiudadDTO ciudad) {

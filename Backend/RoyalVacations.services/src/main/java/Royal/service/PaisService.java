@@ -5,8 +5,10 @@
  */
 package Royal.service;
 
+import Royal.ciudad.logic.api.ICiudadLogic;
 import Royal.pais.logic.api.IPaisLogic;
 import Royal.pais.logic.dto.PaisDTO;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -24,6 +26,7 @@ import javax.ws.rs.core.MediaType;
  */
 
 @Path("/pais")
+@Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
@@ -39,16 +42,16 @@ public class PaisService
     }
 
     @DELETE
-    @Path("{nombre}")
-    public void deletePais(@PathParam("nombre") String nombre) {
-        LogicService.deletePais(nombre);
+    @Path("{id}")
+    public void deletePais(@PathParam("id") Long id) {
+        LogicService.deletePais(id);
     }
 
 
     @GET
-    @Path("{nombre}")
-    public PaisDTO getPais(@PathParam("nombre") String nombre) {
-        return LogicService.getPais(nombre);
+    @Path("{id}")
+    public PaisDTO getPais(@PathParam("id") Long id) {
+        return LogicService.getPais(id);
     }
 
     @PUT

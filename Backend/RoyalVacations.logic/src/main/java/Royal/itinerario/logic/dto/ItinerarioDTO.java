@@ -4,20 +4,35 @@
  * and open the template in the editor.
  */
 package Royal.itinerario.logic.dto;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author estudiante
  */
+@XmlRootElement
 public class ItinerarioDTO 
 {
-     private String nombre;
+   
+    private Long id;
+    
+    private String nombre;
      
-       public String getName() {
+    public String getName() 
+    {
         return nombre;
     }
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.nombre = name;
     }    
-}
+     public Long getId() {
+        return id;
+    }
+
+    public void setId(Long pid) {
+        this.id = pid;
+    }
+}  
+

@@ -21,7 +21,6 @@ public class CiudadConverter
         if (entity != null) {
             CiudadDTO dto = new CiudadDTO();
             dto.setName(entity.getName());
-            dto.setCountry(entity.getCountry());
             return dto;
         } else {
             return null;
@@ -32,7 +31,6 @@ public class CiudadConverter
         if (dto != null) {
             CiudadEntity entity = new CiudadEntity();
             entity.setName(dto.getName());
-            entity.setCountry(dto.getCountry());
             return entity;
         } else {
             return null;

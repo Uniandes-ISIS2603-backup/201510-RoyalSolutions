@@ -9,14 +9,20 @@ import Royal.ciudad.logic.converter.CiudadConverter;
 import Royal.ciudad.logic.dto.CiudadDTO;
 import Royal.ciudad.logic.entity.CiudadEntity;
 import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
+    
 /**
  *
  * @author estudiante
  */
+@Default
+@Stateless
+@LocalBean
 public class CiudadLogic 
 {
         @PersistenceContext(unitName = "CiudadClassPU")
@@ -46,4 +52,6 @@ public class CiudadLogic
 		CiudadEntity entity = entityManager.merge(CiudadConverter.persistenceDTO2Entity(Ciudad));
 		CiudadConverter.entity2PersistenceDTO(entity);
 	}  
+        
+        
 }

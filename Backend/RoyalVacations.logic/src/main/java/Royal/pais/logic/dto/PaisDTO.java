@@ -4,16 +4,21 @@
  * and open the template in the editor.
  */
 package Royal.pais.logic.dto;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author estudiante
  */
+@XmlRootElement
 public class PaisDTO
 {
-    private String nombre;
- private int poblacion;
-     
+    
+     private Long id;
+    
+     private String nombre;
+    private int poblacion;
+    
     public String getName() {
         return nombre;
     }
@@ -29,4 +34,11 @@ public class PaisDTO
     public void setPopulation(int population) {
         this.poblacion = population;
     }  
+     public Long getId() {
+        return id;
+    }
+
+    public void setId(Long pid) {
+        this.id = pid;
+    }
 }

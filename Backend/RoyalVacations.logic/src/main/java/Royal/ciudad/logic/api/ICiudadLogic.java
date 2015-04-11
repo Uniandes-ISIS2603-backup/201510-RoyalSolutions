@@ -7,12 +7,13 @@ package Royal.ciudad.logic.api;
 
 import java.util.List;
 import Royal.ciudad.logic.dto.CiudadDTO;
+import java.util.ArrayList;
 
 /**
  *
  * @author estudiante
  */
-public interface CiudadLogic 
+public interface ICiudadLogic 
 {
     public CiudadDTO createCiudad(CiudadDTO detail);
 

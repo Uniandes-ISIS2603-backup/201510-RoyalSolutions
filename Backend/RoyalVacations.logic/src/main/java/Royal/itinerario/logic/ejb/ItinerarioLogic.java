@@ -9,6 +9,9 @@ import Royal.itinerario.logic.converter.ItinerarioConverter;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
 import Royal.itinerario.logic.entity.ItinerarioEntity;
 import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -17,6 +20,9 @@ import javax.persistence.Query;
  *
  * @author estudiante
  */
+@Default
+@Stateless
+@LocalBean
 public class ItinerarioLogic 
 {
     @PersistenceContext(unitName = "ItineratioClassPU")

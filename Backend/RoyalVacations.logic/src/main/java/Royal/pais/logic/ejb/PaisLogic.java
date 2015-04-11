@@ -4,10 +4,18 @@
  * and open the template in the editor.
  */
 package Royal.pais.logic.ejb;
+import Royal.ciudad.logic.api.ICiudadLogic;
+import Royal.ciudad.logic.converter.CiudadConverter;
+import Royal.ciudad.logic.dto.CiudadDTO;
+import Royal.pais.logic.api.IPaisLogic;
 import Royal.pais.logic.converter.PaisConverter;
 import Royal.pais.logic.dto.PaisDTO;
+import Royal.pais.logic.dto.CiudadPageDTO;
 import Royal.pais.logic.entity.PaisEntity;
 import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -16,7 +24,10 @@ import javax.persistence.Query;
  *
  * @author estudiante
  */
-public class PaisLogic 
+@Default
+@Stateless
+@LocalBean
+public class PaisLogic implements IPaisLogic
 {
      @PersistenceContext(unitName = "PaisClassPU")
 	protected EntityManager entityManager;
@@ -32,12 +43,12 @@ public class PaisLogic
 		return PaisConverter.entity2PersistenceDTOList(q.getResultList());
 	}
 
-	public PaisDTO getPais(String name) {
-		return PaisConverter.entity2PersistenceDTO(entityManager.find(PaisEntity.class, name));
+	public PaisDTO getPais(Long id) {
+		return PaisConverter.entity2PersistenceDTO(entityManager.find(PaisEntity.class, id));
 	}
 
-	public void deletePais(String name) {
-		PaisEntity entity = entityManager.find(PaisEntity.class, name);
+	public void deletePais(Long id) {
+		PaisEntity entity = entityManager.find(PaisEntity.class, id);
 		entityManager.remove(entity);
 	}
 
@@ -45,4 +56,48 @@ public class PaisLogic
 		PaisEntity entity = entityManager.merge(PaisConverter.persistenceDTO2Entity(pais));
 		PaisConverter.entity2PersistenceDTO(entity);
 	}      
+        
+        public CiudadDTO createCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
+        {
+            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
+            CiudadDTO respuesta = null;
+            if ( entidad != null)
+            {
+                respuesta = ciudadLogic.createCiudad(ciudad);
+            }
+         return respuesta;
+        }
+         public void deleteCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
+        {
+            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
+            if ( entidad != null)
+            {
+                ciudadLogic.deleteCiudad(ciudad.getName());
+            }
+        }
+         public CiudadPageDTO getCiudadesDePais(Long idPais, Integer pagina, Integer datosMaximos)
+                 
+         {
+         Query cuenta = entityManager.createQuery("select count(u) from CiudadEntity u");
+        Long cuentaReg = 0L;
+        cuentaReg = Long.parseLong(cuenta.getSingleResult().toString());
+        Query q = entityManager.createQuery("select u from CiudadEntity u where u.pais = '"+idPais+"'");
+        if(pagina != null && datosMaximos != null){
+            q.setFirstResult((pagina-1)*datosMaximos);
+            q.setMaxResults(datosMaximos);
+        }
+        CiudadPageDTO respuesta = new CiudadPageDTO();
+        respuesta.setTotalCiudades(cuentaReg);
+        respuesta.setCiudades(CiudadConverter.entity2PersistenceDTOList(q.getResultList()));
+        return respuesta;
+         }
+         
+          public void updateCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
+        {
+            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
+            if ( entidad != null)
+            {
+                ciudadLogic.updateCiudad(ciudad);
+            }
+        }
 }

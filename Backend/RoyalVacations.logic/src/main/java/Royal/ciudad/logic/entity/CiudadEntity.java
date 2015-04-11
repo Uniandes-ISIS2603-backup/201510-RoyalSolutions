@@ -5,20 +5,30 @@
  */
 package Royal.ciudad.logic.entity;
 
+import Royal.pais.logic.entity.PaisEntity;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 /**
  *
  * @author estudiante
  */
 public class CiudadEntity
 {
-    @Id
+    
     @GeneratedValue(generator = "Ciudad")
     
+    @Id
+    @Column(name = "CIUDAD_ID")
+    private long id;
     private String nombre;
- private String pais;
+    
+    @ManyToOne 
+    @JoinColumn(name = "PAIS_ID")
+    private PaisEntity pais;
      
     public String getName() {
         return nombre;
@@ -28,11 +38,19 @@ public class CiudadEntity
         this.nombre = name;
     }
     
-    public String getCountry() {
+    public PaisEntity getCountry() {
         return pais;
     }
 
-    public void setCountry(String name) {
+    public void setCountry(PaisEntity name) {
         this.pais = name;
     }   
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long pid) {
+        this.id = pid;
+    }
 }

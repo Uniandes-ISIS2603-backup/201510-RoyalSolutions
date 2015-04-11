@@ -17,9 +17,9 @@ public interface IPaisLogic {
 
     public List<PaisDTO> getPaises();
 
-    public PaisDTO getPais(String pNombre);
+    public PaisDTO getPais(Long id);
 
-    public void deletePais(String pNombre);
+    public void deletePais(Long id);
 
     public void updatePais(PaisDTO detail);
 }

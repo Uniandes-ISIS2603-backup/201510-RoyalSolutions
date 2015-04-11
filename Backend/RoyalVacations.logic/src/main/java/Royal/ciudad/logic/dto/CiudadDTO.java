@@ -5,14 +5,20 @@
  */
 package Royal.ciudad.logic.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author estudiante
  */
+@XmlRootElement
 public class CiudadDTO 
 {
- private String nombre;
- private String pais;
+    
+    
+    private long id;
+    private String nombre;
+    
      
     public String getName() {
         return nombre;
@@ -21,12 +27,14 @@ public class CiudadDTO
     public void setName(String name) {
         this.nombre = name;
     }
+     
     
-    public String getCountry() {
-        return pais;
+    public Long getId() {
+        return id;
     }
 
-    public void setCountry(String name) {
-        this.pais = name;
-    }   
+    public void setId(Long pid) {
+        this.id = pid;
+    }
 }
+

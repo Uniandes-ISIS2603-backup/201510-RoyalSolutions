@@ -7,7 +7,6 @@ package Royal.service;
 
 import Royal.itinerario.logic.api.IItinerarioLogic;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
-import Royal.servicio.logic.dto.ServicioDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -58,25 +57,4 @@ public class ItinerarioService
         LogicService.updateItinerario(itinerario);
     }
     
-    @POST
-    public ServicioDTO createServicio(ServicioDTO servicio, ItinerarioDTO itinerario) {
-        return LogicService.createServicio(servicio, itinerario);
-    }
-    
-     @GET
-    @Path("{nombre}")
-    public List<ServicioDTO> getServicios(ItinerarioDTO itinerario) {
-        return LogicService.getServicios(itinerario);
-    }
-    
-     @PUT
-    public void updateServicio(@PathParam("nombre") String nombre, ServicioDTO servicio) {
-        LogicService.updateServicio(servicio);
-    }
-    
-    @DELETE
-    @Path("{nombre}")
-    public void deleteServicio(@PathParam("nombre") String nombre) {
-        LogicService.deleteServicio(nombre);
-    }
 }

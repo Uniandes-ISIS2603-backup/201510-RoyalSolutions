@@ -5,6 +5,7 @@
  */
 package Royal.ciudad.logic.ejb;
 
+import Royal.ciudad.logic.api.ICiudadLogic;
 import Royal.ciudad.logic.converter.CiudadConverter;
 import Royal.ciudad.logic.dto.CiudadDTO;
 import Royal.ciudad.logic.entity.CiudadEntity;
@@ -23,7 +24,7 @@ import javax.persistence.Query;
 @Default
 @Stateless
 @LocalBean
-public class CiudadLogic 
+public class CiudadLogic implements ICiudadLogic
 {
         @PersistenceContext(unitName = "CiudadClassPU")
 	protected EntityManager entityManager;

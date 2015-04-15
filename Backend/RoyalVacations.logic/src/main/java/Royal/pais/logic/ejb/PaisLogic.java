@@ -24,7 +24,7 @@ import javax.persistence.Query;
  *
  * @author estudiante
  */
-@Default
+
 @Stateless
 @LocalBean
 public class PaisLogic implements IPaisLogic

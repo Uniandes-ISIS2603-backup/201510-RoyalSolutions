@@ -7,7 +7,6 @@ package Royal.itinerario.logic.api;
 
 import java.util.List;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
-import Royal.servicio.logic.dto.ServicioDTO;
 
 /**
  *
@@ -25,11 +24,4 @@ public interface IItinerarioLogic
 
     public void updateItinerario(ItinerarioDTO detail);
     
-    public ServicioDTO createServicio(ServicioDTO detailS, ItinerarioDTO detailI);
-    
-    public List<ServicioDTO> getServicios(ItinerarioDTO detailI);
-    
-    public void updateServicio(ServicioDTO detail);
-    
-    public void deleteServicio(String pNombre);    
 }

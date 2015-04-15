@@ -5,6 +5,7 @@
  */
 package Royal.itinerario.logic.ejb;
 
+import Royal.itinerario.logic.api.IItinerarioLogic;
 import Royal.itinerario.logic.converter.ItinerarioConverter;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
 import Royal.itinerario.logic.entity.ItinerarioEntity;
@@ -20,10 +21,10 @@ import javax.persistence.Query;
  *
  * @author estudiante
  */
-@Default
+
 @Stateless
 @LocalBean
-public class ItinerarioLogic 
+public class ItinerarioLogic implements IItinerarioLogic
 {
     @PersistenceContext(unitName = "ItineratioClassPU")
     protected EntityManager entityManager;
@@ -52,4 +53,5 @@ public class ItinerarioLogic
 	        ItinerarioEntity entity = entityManager.merge(ItinerarioConverter.persistenceDTO2Entity(Itinerario));
 	        ItinerarioConverter.entity2PersistenceDTO(entity);
 	    }    
+
 }

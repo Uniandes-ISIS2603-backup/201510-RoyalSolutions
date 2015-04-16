@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="src/assets/libs/jquery-1.11.2.min.js"></script>
+        <script src="src/assets/libs/underscore-min.js"></script>
+        <script src="src/assets/libs/angular.min.js"></script>
+        <script src="src/assets/libs/angular-mocks.js"></script>
+        <script src="src/assets/libs/angular-route.min.js"></script>
+        <script src="src/assets/libs/ui-bootstrap-tpls-0.12.1.min.js"></script>
+        <script src="src/assets/libs/restangular.min.js"></script>
+
+        <script src="src/app.js"></script>
+
+        <script src="src/shared/crud/crud.mod.js"></script>
+        <script src="src/shared/crud/crud.svc.js"></script>
+        <script src="src/shared/mocks/mock.mod.js"></script>
+        <script src="src/shared/mocks/mock.svc.js"></script>
+
+        <script src="src/modules/itinerario/itinerario.mod.js"></script>
+        <script src="src/modules/itinerario/itinerario.ctrl.js"></script>
+        <script src="src/modules/itinerario/itinerario.svc.js"></script>
+        <script src="src/modules/ciudad/ciudad.mod.js"></script>
+        <script src="src/modules/ciudad/ciudad.ctrl.js"></script>
+        <script src="src/modules/ciudad/ciudad.mock.js"></script>
+        <script src="src/modules/ciudad/ciudad.svc.js"></script>
+        <script src="src/modules/pais/pais.mod.js"></script>
+        <script src="src/modules/pais/pais.ctrl.js"></script>
+        <script src="src/modules/pais/pais.svc.js"></script>
+        <script src="src/modules/visita/visita.mod.js"></script>
+        <script src="src/modules/visita/visita.ctrl.js"></script>
+        <script src="src/modules/visita/visita.svc.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#/itinerarios">Itinerarios</a></li>
+                    <li><a href="#/ciudades">Ciudades</a></li>
+                    <li><a href="#/paises">Países</a></li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <div ng-view></div>
+            </div>
+        </div>
+        <script>window.alert("Bienvenido!");</script>
+        <script>console.log("Bienvenido!");</script>
+    </body>
+</html>

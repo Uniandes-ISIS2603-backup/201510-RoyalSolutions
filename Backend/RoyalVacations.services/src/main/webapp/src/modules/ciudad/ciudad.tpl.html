@@ -1,0 +1,69 @@
+<div ng-controller="ciudadCtrl as ciudadCtrl">
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Ciudades</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="ciudad-navbar">
+					<button class="btn btn-default navbar-btn" ng-hide="ciudadCtrl.editMode" ng-click="ciudadCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button class="btn btn-default navbar-btn" ng-hide="ciudadCtrl.editMode" ng-click="ciudadCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+					<button class="btn btn-default navbar-btn" ng-show="ciudadCtrl.editMode" ng-click="ciudadCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button class="btn btn-default navbar-btn" ng-show="ciudadCtrl.editMode" ng-click="ciudadCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					<button class="btn btn-default navbar-btn" ng-click="ciudadCtrl.getLeastPopulated()"><span class="glyphicon glyphicon-star"></span> Least Populated</button>
+                    <button class="btn btn-default navbar-btn" ng-click="ciudadCtrl.getMostPopulated()"><span class="glyphicon glyphicon-star"></span> Most Populated</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div ng-hide="ciudadCtrl.editMode">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Población</th>
+                                        <th>País</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="record in records">
+					<td>{{record.nombre}}</td>
+					<td>{{record.poblacion}}</td>
+                                        <td>{{ciudadCtrl.getPaisName(record.pais)}}</td>
+					<td>
+						<button class="btn btn-default btn-sm" ng-click="ciudadCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+						<button class="btn btn-default btn-sm" ng-click="ciudadCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+        <pagination total-items="totalItems" ng-model="currentPage" ng-change="ciudadCtrl.pageChanged()" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" items-per-page="itemsPerPage"></pagination>
+	</div>
+	<div ng-show="ciudadCtrl.editMode">
+		<form name="paisForm" role="form">
+			<input id="nombre" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.nombre"/>
+			</div>
+			<div class="form-group">
+				<label for="población">Población</label>
+				<input id="población" class="form-control" type="number" ng-model="currentRecord.poblacion"/>
+                        </div>
+                        <div class="form-group">
+                                <label for="pais">Pais</label>
+                                <select id="pais" class="form-control" ng-options="pais.id as pais.nombre for pais in paisRecords" ng-model="currentRecord.pais"></select>
+                        </div>
+		</form>
+	</div>
+</div>

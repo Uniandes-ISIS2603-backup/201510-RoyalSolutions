@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
  *
  * @author estudiante
  */
+@Entity
 public class PaisEntity 
 {
     

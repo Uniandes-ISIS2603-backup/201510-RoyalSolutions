@@ -26,7 +26,7 @@ import javax.persistence.Query;
 @LocalBean
 public class CiudadLogic implements ICiudadLogic
 {
-        @PersistenceContext(unitName = "CiudadClassPU")
+        @PersistenceContext(unitName = "RoyalPU")
 	protected EntityManager entityManager;
   
 	public CiudadDTO createCiudad(CiudadDTO ciudad) {

@@ -29,7 +29,7 @@ import javax.persistence.Query;
 @LocalBean
 public class PaisLogic implements IPaisLogic
 {
-     @PersistenceContext(unitName = "PaisClassPU")
+     @PersistenceContext(unitName = "RoyalPU")
 	protected EntityManager entityManager;
   
 	public PaisDTO createPais(PaisDTO pais) {

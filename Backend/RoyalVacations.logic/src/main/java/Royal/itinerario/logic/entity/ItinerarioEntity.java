@@ -14,6 +14,7 @@ import javax.persistence.Id;
  *
  * @author estudiante
  */
+@Entity
 public class ItinerarioEntity 
 {
     

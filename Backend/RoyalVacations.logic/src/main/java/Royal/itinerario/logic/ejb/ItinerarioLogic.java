@@ -26,7 +26,7 @@ import javax.persistence.Query;
 @LocalBean
 public class ItinerarioLogic implements IItinerarioLogic
 {
-    @PersistenceContext(unitName = "ItineratioClassPU")
+    @PersistenceContext(unitName = "RoyalPU")
     protected EntityManager entityManager;
 
     public ItinerarioDTO createItinerario(ItinerarioDTO country) {

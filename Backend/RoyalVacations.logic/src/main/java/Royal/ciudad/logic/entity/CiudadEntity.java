@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
  *
  * @author estudiante
  */
+@Entity
 public class CiudadEntity
 {
     

@@ -26,12 +26,11 @@ import javax.persistence.Query;
 @LocalBean
 public class CiudadLogic implements ICiudadLogic
 {
-        @PersistenceContext(unitName = "RoyalPU")
+        @PersistenceContext(unitName = "SportClassPU")
 	protected EntityManager entityManager;
   
 	public CiudadDTO createCiudad(CiudadDTO ciudad) {
 		CiudadEntity entity = CiudadConverter.persistenceDTO2Entity(ciudad);
-		entityManager.persist(entity);
 		return CiudadConverter.entity2PersistenceDTO(entity);
 	}
 

@@ -56,48 +56,5 @@ public class PaisLogic implements IPaisLogic
 		PaisEntity entity = entityManager.merge(PaisConverter.persistenceDTO2Entity(pais));
 		PaisConverter.entity2PersistenceDTO(entity);
 	}      
-        
-        public CiudadDTO createCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
-        {
-            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
-            CiudadDTO respuesta = null;
-            if ( entidad != null)
-            {
-                respuesta = ciudadLogic.createCiudad(ciudad);
-            }
-         return respuesta;
-        }
-         public void deleteCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
-        {
-            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
-            if ( entidad != null)
-            {
-                ciudadLogic.deleteCiudad(ciudad.getName());
-            }
-        }
-         public CiudadPageDTO getCiudadesDePais(Long idPais, Integer pagina, Integer datosMaximos)
-                 
-         {
-         Query cuenta = entityManager.createQuery("select count(u) from CiudadEntity u");
-        Long cuentaReg = 0L;
-        cuentaReg = Long.parseLong(cuenta.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CiudadEntity u where u.pais = '"+idPais+"'");
-        if(pagina != null && datosMaximos != null){
-            q.setFirstResult((pagina-1)*datosMaximos);
-            q.setMaxResults(datosMaximos);
-        }
-        CiudadPageDTO respuesta = new CiudadPageDTO();
-        respuesta.setTotalCiudades(cuentaReg);
-        respuesta.setCiudades(CiudadConverter.entity2PersistenceDTOList(q.getResultList()));
-        return respuesta;
-         }
-         
-          public void updateCiudadAPais(CiudadDTO ciudad, Long idPais, ICiudadLogic ciudadLogic)
-        {
-            PaisEntity entidad = entityManager.find(PaisEntity.class, idPais);
-            if ( entidad != null)
-            {
-                ciudadLogic.updateCiudad(ciudad);
-            }
-        }
+       
 }

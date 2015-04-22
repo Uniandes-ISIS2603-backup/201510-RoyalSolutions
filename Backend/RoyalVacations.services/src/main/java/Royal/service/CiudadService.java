@@ -6,6 +6,8 @@
 package Royal.service;
 
 import Royal.ciudad.logic.api.ICiudadLogic;
+import Royal.ciudad.logic.ejb.CiudadLogic;
+
 import Royal.ciudad.logic.dto.CiudadDTO;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -34,7 +36,7 @@ import javax.ws.rs.core.MediaType;
 public class CiudadService
 {
    @Inject
-    protected ICiudadLogic LogicService;
+    protected CiudadLogic LogicService;
 
     @POST
     public CiudadDTO createCiudad(CiudadDTO ciudad) {

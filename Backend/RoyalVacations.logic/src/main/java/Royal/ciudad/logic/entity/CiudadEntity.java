@@ -20,17 +20,15 @@ import javax.persistence.ManyToOne;
 public class CiudadEntity
 {
     
-    @GeneratedValue(generator = "Ciudad")
+   
     
     @Id
+    @GeneratedValue(generator = "Ciudad")
     @Column(name = "CIUDAD_ID")
     private long id;
     private String nombre;
     
-    @ManyToOne 
-    @JoinColumn(name = "PAIS_ID")
-    private PaisEntity pais;
-     
+  
     public String getName() {
         return nombre;
     }
@@ -39,13 +37,7 @@ public class CiudadEntity
         this.nombre = name;
     }
     
-    public PaisEntity getCountry() {
-        return pais;
-    }
-
-    public void setCountry(PaisEntity name) {
-        this.pais = name;
-    }   
+  
     
     public Long getId() {
         return id;

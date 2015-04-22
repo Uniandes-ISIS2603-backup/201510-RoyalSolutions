@@ -18,10 +18,11 @@ import javax.persistence.Id;
 public class ItinerarioEntity 
 {
     
-    @GeneratedValue(generator = "Itinerario")
+ 
     
     
     @Id
+    @GeneratedValue(generator = "Itinerario")
     @Column (name = "ITINERARIO_ID")
     private Long id;
     

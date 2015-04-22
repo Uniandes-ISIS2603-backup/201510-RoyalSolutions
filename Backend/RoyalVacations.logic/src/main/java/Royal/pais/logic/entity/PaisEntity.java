@@ -22,17 +22,17 @@ import javax.persistence.OneToMany;
 public class PaisEntity 
 {
     
+    
+     
+     
+    @Id
     @GeneratedValue(generator = "Pais")
-     
-     
-     @Id
     @Column (name = "PAIS_ID")
      private Long id;
     
      private String nombre;
     private int poblacion;
-    @OneToMany(mappedBy="pais")
-    private List<CiudadEntity> ciudades;
+   
     
     public String getName() {
         return nombre;
@@ -57,24 +57,5 @@ public class PaisEntity
         this.id = pid;
     }
     
-    public List getCiudades()
-    {
-        return ciudades;
-    }
-    
-    public void addCiudad(CiudadEntity ciud)
-    {
-        ciudades.add(ciud);
-    }
-    
-    public void deleteCiudad(String nombre)
-    {
-        for (int i = 0; i<ciudades.size(); i++)
-        {
-            if( ((CiudadEntity) ciudades.get(i)).getName() == nombre)
-            {
-                ciudades.remove(i);
-            }
-        }
-    }
+   
 }

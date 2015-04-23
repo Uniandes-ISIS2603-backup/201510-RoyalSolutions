@@ -15,17 +15,17 @@ import java.util.List;
  */
 public interface IPaisLogic {
 
-    public PaisDTO createCountry(PaisDTO detail);
+    public PaisDTO createPais(PaisDTO detail);
 
-    public List<PaisDTO> getCountries();
+    public List<PaisDTO> getPaises();
 
-    public PaisPageDTO getCountries(Integer page, Integer maxRecords);
+    public PaisPageDTO getPaises(Integer page, Integer maxRecords);
 
-    public PaisDTO getCountry(Long id);
+    public PaisDTO getPais(Long id);
 
-    public void deleteCountry(Long id);
+    public void deletePais(Long id);
 
-    public void updateCountry(PaisDTO detail);
+    public void updatePais(PaisDTO detail);
     
     public PaisDTO getMostPopulated();
     

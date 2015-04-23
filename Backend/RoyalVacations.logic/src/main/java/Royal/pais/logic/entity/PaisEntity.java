@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class PaisEntity {
 
     @Id
-    @GeneratedValue(generator = "Country")
+    @GeneratedValue(generator = "Pais")
     private Long id;
     private String name;
     private Integer population;

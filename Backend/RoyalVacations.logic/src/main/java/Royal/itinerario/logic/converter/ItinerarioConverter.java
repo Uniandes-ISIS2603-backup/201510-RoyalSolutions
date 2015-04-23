@@ -20,6 +20,8 @@ public class ItinerarioConverter
         if (entity != null) {
             ItinerarioDTO dto = new ItinerarioDTO();
             dto.setName(entity.getName());
+            dto.setInicio(entity.getInicio());
+            dto.setFin(entity.getFin());
             return dto;
         } else {
             return null;
@@ -30,6 +32,8 @@ public class ItinerarioConverter
         if (dto != null) {
             ItinerarioEntity entity = new ItinerarioEntity();
             entity.setName(dto.getName());
+            entity.setInicio(dto.getInicio());
+            entity.setFin(dto.getFin());
             return entity;
         } else {
             return null;

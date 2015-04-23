@@ -19,18 +19,18 @@ public class PaisLogic implements IPaisLogic{
     @PersistenceContext(unitName = "RoyalPU")
     protected EntityManager entityManager;
 
-    public PaisDTO createCountry(PaisDTO country) {
+    public PaisDTO createPais(PaisDTO country) {
         PaisEntity entity = PaisConverter.persistenceDTO2Entity(country);
         entityManager.persist(entity);
         return PaisConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<PaisDTO> getCountries() {
+    public List<PaisDTO> getPaises() {
         Query q = entityManager.createQuery("select u from CountryEntity u");
         return PaisConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public PaisPageDTO getCountries(Integer page, Integer maxRecords) {
+    public PaisPageDTO getPaises(Integer page, Integer maxRecords) {
         Query count = entityManager.createQuery("select count(u) from CountryEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
@@ -45,16 +45,16 @@ public class PaisLogic implements IPaisLogic{
         return response;
     }
 
-    public PaisDTO getCountry(Long id) {
+    public PaisDTO getPais(Long id) {
         return PaisConverter.entity2PersistenceDTO(entityManager.find(PaisEntity.class, id));
     }
 
-    public void deleteCountry(Long id) {
+    public void deletePais(Long id) {
         PaisEntity entity = entityManager.find(PaisEntity.class, id);
         entityManager.remove(entity);
     }
 
-    public void updateCountry(PaisDTO country) {
+    public void updatePais(PaisDTO country) {
         PaisEntity entity = entityManager.merge(PaisConverter.persistenceDTO2Entity(country));
         PaisConverter.entity2PersistenceDTO(entity);
     }

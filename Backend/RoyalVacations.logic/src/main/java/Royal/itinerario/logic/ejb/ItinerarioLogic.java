@@ -28,30 +28,29 @@ public class ItinerarioLogic implements IItinerarioLogic
 {
     @PersistenceContext(unitName = "RoyalPU")
     protected EntityManager entityManager;
-
-    public ItinerarioDTO createItinerario(ItinerarioDTO country) {
-        ItinerarioEntity entity = ItinerarioConverter.persistenceDTO2Entity(country);
+    
+    public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) {
+        ItinerarioEntity entity = ItinerarioConverter.persistenceDTO2Entity(itinerario);
         entityManager.persist(entity);
         return ItinerarioConverter.entity2PersistenceDTO(entity);
     }
-    
+
     public List<ItinerarioDTO> getItinerarios() {
         Query q = entityManager.createQuery("select u from ItinerarioEntity u");
         return ItinerarioConverter.entity2PersistenceDTOList(q.getResultList());
     }
-    
-     public ItinerarioDTO getItinerario(String name) {
-	        return ItinerarioConverter.entity2PersistenceDTO(entityManager.find(ItinerarioEntity.class, name));
-	    }
 
-	    public void deleteItinerario(String name) {
-	        ItinerarioEntity entity = entityManager.find(ItinerarioEntity.class, name);
-	        entityManager.remove(entity);
-	    }
+    public ItinerarioDTO getItinerario(Long id) {
+        return ItinerarioConverter.entity2PersistenceDTO(entityManager.find(ItinerarioEntity.class, id));
+    }
 
-	    public void updateItinerario(ItinerarioDTO Itinerario) {
-	        ItinerarioEntity entity = entityManager.merge(ItinerarioConverter.persistenceDTO2Entity(Itinerario));
-	        ItinerarioConverter.entity2PersistenceDTO(entity);
-	    }    
+    public void deleteItinerario(Long id) {
+        ItinerarioEntity entity = entityManager.find(ItinerarioEntity.class, id);
+        entityManager.remove(entity);
+    }
 
+    public void updateItinerario(ItinerarioDTO country) {
+        ItinerarioEntity entity = entityManager.merge(ItinerarioConverter.persistenceDTO2Entity(country));
+        ItinerarioConverter.entity2PersistenceDTO(entity);
+    }
 }

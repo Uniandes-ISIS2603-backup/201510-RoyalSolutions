@@ -34,45 +34,45 @@ import javax.ws.rs.core.MediaType;
 public class PaisService 
 {
     @Inject
-    protected IPaisLogic countryLogic;
+    protected IPaisLogic paisLogic;
 
     @POST
-    public PaisDTO createCountry(PaisDTO sport) {
-        return countryLogic.createCountry(sport);
+    public PaisDTO createPais(PaisDTO pais) {
+        return paisLogic.createPais(pais);
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteCountry(@PathParam("id") Long id) {
-        countryLogic.deleteCountry(id);
+    public void deletePais(@PathParam("id") Long id) {
+        paisLogic.deletePais(id);
     }
 
     @GET
-    public PaisPageDTO getCountries(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
-        return countryLogic.getCountries(page, maxRecords);
+    public PaisPageDTO getPaises(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+        return paisLogic.getPaises(page, maxRecords);
     }
 
     @GET
     @Path("{id}")
-    public PaisDTO getCountry(@PathParam("id") Long id) {
-        return countryLogic.getCountry(id);
+    public PaisDTO getPais(@PathParam("id") Long id) {
+        return paisLogic.getPais(id);
     }
 
     @PUT
     @Path("{id}")
-    public void updateCountry(@PathParam("id") Long id, PaisDTO sport) {
-        countryLogic.updateCountry(sport);
+    public void updatePais(@PathParam("id") Long id, PaisDTO pais) {
+        paisLogic.updatePais(pais);
     }
 
     @GET
     @Path("mostPopulated")
     public PaisDTO getMostPopulated() {
-        return countryLogic.getMostPopulated();
+        return paisLogic.getMostPopulated();
     }
 
     @GET
     @Path("leastPopulated")
     public PaisDTO getLeastPopulated() {
-        return countryLogic.getLeastPopulated();
+        return paisLogic.getLeastPopulated();
     }
 }

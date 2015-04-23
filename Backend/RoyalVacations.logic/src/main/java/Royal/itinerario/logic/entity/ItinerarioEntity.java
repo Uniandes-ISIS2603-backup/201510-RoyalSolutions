@@ -5,10 +5,11 @@
  */
 package Royal.itinerario.logic.entity;
 
-import javax.persistence.Column;
+import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -17,31 +18,43 @@ import javax.persistence.Id;
 @Entity
 public class ItinerarioEntity 
 {
-    
- 
-    
-    
     @Id
     @GeneratedValue(generator = "Itinerario")
-    @Column (name = "ITINERARIO_ID")
     private Long id;
-    
-    private String nombre;
-     
-    public String getName() 
-    {
-        return nombre;
-    }
+    private String name;
+    private Date inicio;
+    private Date fin;
+    @ManyToOne
 
-    public void setName(String name) 
-    {
-        this.nombre = name;
-    }    
-     public Long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long pid) {
-        this.id = pid;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public Date getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(Date pInicio) {
+        this.inicio = pInicio;
+    }
+    
+    public Date getFin() {
+        return fin;
+    }
+
+    public void setFin(Date pFin) {
+        this.fin = pFin;
     }
 }

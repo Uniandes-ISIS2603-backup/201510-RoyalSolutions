@@ -18,10 +18,9 @@ public interface IItinerarioLogic
 
     public List<ItinerarioDTO> getItinerarios();
 
-    public ItinerarioDTO getItinerario(String pNombre);
+    public ItinerarioDTO getItinerario(Long id);
 
-    public void deleteItinerario(String pNombre);
+    public void deleteItinerario(Long id);
 
-    public void updateItinerario(ItinerarioDTO detail);
-    
+    public void updateItinerario(ItinerarioDTO detail);  
 }

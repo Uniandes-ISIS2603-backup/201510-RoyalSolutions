@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Royal.ciudad.logic.converter;
 
 import Royal.ciudad.logic.dto.CiudadDTO;
@@ -11,16 +5,17 @@ import Royal.ciudad.logic.entity.CiudadEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author estudiante
- */
-public class CiudadConverter 
-{
- public static CiudadDTO entity2PersistenceDTO(CiudadEntity entity) {
+public class CiudadConverter {
+
+    public static CiudadDTO entity2PersistenceDTO(CiudadEntity entity) {
         if (entity != null) {
             CiudadDTO dto = new CiudadDTO();
+            dto.setId(entity.getId());
             dto.setName(entity.getName());
+            dto.setPopulation(entity.getPopulation());
+            if (entity.getCountry() != null) {
+                dto.setCountry(entity.getCountry().getId());
+            }
             return dto;
         } else {
             return null;
@@ -30,7 +25,12 @@ public class CiudadConverter
     public static CiudadEntity persistenceDTO2Entity(CiudadDTO dto) {
         if (dto != null) {
             CiudadEntity entity = new CiudadEntity();
+            entity.setId(dto.getId());
+
             entity.setName(dto.getName());
+
+            entity.setPopulation(dto.getPopulation());
+
             return entity;
         } else {
             return null;
@@ -51,5 +51,5 @@ public class CiudadConverter
             entities.add(persistenceDTO2Entity(dto));
         }
         return entities;
-    }    
+    }
 }

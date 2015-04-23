@@ -6,11 +6,9 @@
 package Royal.service;
 
 import Royal.ciudad.logic.api.ICiudadLogic;
-import Royal.ciudad.logic.ejb.CiudadLogic;
-
 import Royal.ciudad.logic.dto.CiudadDTO;
-import java.util.List;
-import javax.ejb.Stateless;
+import Royal.ciudad.logic.dto.CiudadPageDTO;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -29,35 +27,39 @@ import javax.ws.rs.core.MediaType;
  */
 
 @Path("/ciudad")
-@Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
 public class CiudadService
 {
    @Inject
-    protected CiudadLogic LogicService;
+    protected ICiudadLogic ciudadLogicService;
 
     @POST
     public CiudadDTO createCiudad(CiudadDTO ciudad) {
-        return LogicService.createCiudad(ciudad);
+        return ciudadLogicService.createCiudad(ciudad);
     }
 
     @DELETE
-    @Path("{nombre}")
-    public void deleteCiudad(@PathParam("nombre") String nombre) {
-        LogicService.deleteCiudad(nombre);
+    @Path("{id}")
+    public void deleteCiudad(@PathParam("id") Long id) {
+        ciudadLogicService.deleteCiudad(id);
     }
 
+    @GET
+    public CiudadPageDTO getCiudad(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+        return ciudadLogicService.getCiudades(page, maxRecords);
+    }
 
     @GET
-    @Path("{nombre}")
-    public CiudadDTO getCiudad(@PathParam("nombre") String nombre) {
-        return LogicService.getCiudad(nombre);
+    @Path("{id}")
+    public CiudadDTO getCiudad(@PathParam("id") Long id) {
+        return ciudadLogicService.getCiudad(id);
     }
 
     @PUT
-    public void updateCiudad(@PathParam("nombre") String nombre, @PathParam("pais") String pais, CiudadDTO ciudad) {
-        LogicService.updateCiudad(ciudad);
+    @Path("{id}")
+    public void updateCiudad(@PathParam("id") Long id, CiudadDTO ciudad) {
+        ciudadLogicService.updateCiudad(ciudad);
     }
 }

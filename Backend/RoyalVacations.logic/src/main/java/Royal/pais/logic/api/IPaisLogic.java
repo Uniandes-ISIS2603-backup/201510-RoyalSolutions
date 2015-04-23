@@ -6,20 +6,28 @@
 package Royal.pais.logic.api;
 
 import Royal.pais.logic.dto.PaisDTO;
+import Royal.pais.logic.dto.PaisPageDTO;
 import java.util.List;
 
 /**
  *
- * @author estudiante
+ * @author afesguerra
  */
 public interface IPaisLogic {
-    public PaisDTO createPais(PaisDTO detail);
 
-    public List<PaisDTO> getPaises();
+    public PaisDTO createCountry(PaisDTO detail);
 
-    public PaisDTO getPais(Long id);
+    public List<PaisDTO> getCountries();
 
-    public void deletePais(Long id);
+    public PaisPageDTO getCountries(Integer page, Integer maxRecords);
 
-    public void updatePais(PaisDTO detail);
+    public PaisDTO getCountry(Long id);
+
+    public void deleteCountry(Long id);
+
+    public void updateCountry(PaisDTO detail);
+    
+    public PaisDTO getMostPopulated();
+    
+    public PaisDTO getLeastPopulated();
 }

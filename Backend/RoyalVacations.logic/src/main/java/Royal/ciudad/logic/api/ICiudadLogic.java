@@ -1,27 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Royal.ciudad.logic.api;
 
-import java.util.List;
 import Royal.ciudad.logic.dto.CiudadDTO;
-import java.util.ArrayList;
+import Royal.ciudad.logic.dto.CiudadPageDTO;
+import java.util.List;
 
-/**
- *
- * @author estudiante
- */
-public interface ICiudadLogic 
-{
+public interface ICiudadLogic {
+
     public CiudadDTO createCiudad(CiudadDTO detail);
 
     public List<CiudadDTO> getCiudades();
 
-    public CiudadDTO getCiudad(String pNombre);
+    public CiudadPageDTO getCiudades(Integer page, Integer maxRecords);
 
-    public void deleteCiudad(String pNombre);
+    public CiudadDTO getCiudad(Long id);
+
+    public void deleteCiudad(Long id);
 
     public void updateCiudad(CiudadDTO detail);
 }

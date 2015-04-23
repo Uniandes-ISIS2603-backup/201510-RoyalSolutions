@@ -12,13 +12,13 @@ import java.util.List;
 
 /**
  *
- * @author estudiante
+ * @author afesguerra
  */
-public class PaisConverter
-{
+public class PaisConverter {
     public static PaisDTO entity2PersistenceDTO(PaisEntity entity) {
         if (entity != null) {
             PaisDTO dto = new PaisDTO();
+            dto.setId(entity.getId());
             dto.setName(entity.getName());
             dto.setPopulation(entity.getPopulation());
             return dto;
@@ -30,8 +30,12 @@ public class PaisConverter
     public static PaisEntity persistenceDTO2Entity(PaisDTO dto) {
         if (dto != null) {
             PaisEntity entity = new PaisEntity();
+            entity.setId(dto.getId());
+
             entity.setName(dto.getName());
+
             entity.setPopulation(dto.getPopulation());
+
             return entity;
         } else {
             return null;
@@ -52,5 +56,5 @@ public class PaisConverter
             entities.add(persistenceDTO2Entity(dto));
         }
         return entities;
-    }    
+    }
 }

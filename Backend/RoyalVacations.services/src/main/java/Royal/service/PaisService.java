@@ -5,9 +5,9 @@
  */
 package Royal.service;
 
-import Royal.ciudad.logic.api.ICiudadLogic;
 import Royal.pais.logic.api.IPaisLogic;
 import Royal.pais.logic.dto.PaisDTO;
+import Royal.pais.logic.dto.PaisPageDTO;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -18,6 +18,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -32,30 +33,46 @@ import javax.ws.rs.core.MediaType;
 
 public class PaisService 
 {
-     @Inject
-    protected IPaisLogic LogicService;
+    @Inject
+    protected IPaisLogic countryLogic;
 
     @POST
-    public PaisDTO createPais(PaisDTO pais)
-    {
-        return LogicService.createPais(pais);
+    public PaisDTO createCountry(PaisDTO sport) {
+        return countryLogic.createCountry(sport);
     }
 
     @DELETE
     @Path("{id}")
-    public void deletePais(@PathParam("id") Long id) {
-        LogicService.deletePais(id);
+    public void deleteCountry(@PathParam("id") Long id) {
+        countryLogic.deleteCountry(id);
     }
 
+    @GET
+    public PaisPageDTO getCountries(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+        return countryLogic.getCountries(page, maxRecords);
+    }
 
     @GET
     @Path("{id}")
-    public PaisDTO getPais(@PathParam("id") Long id) {
-        return LogicService.getPais(id);
+    public PaisDTO getCountry(@PathParam("id") Long id) {
+        return countryLogic.getCountry(id);
     }
 
     @PUT
-    public void updatePais(@PathParam("nombre") String nombre, @PathParam("pais") int poblacion, PaisDTO pais) {
-        LogicService.updatePais(pais);
-    }    
+    @Path("{id}")
+    public void updateCountry(@PathParam("id") Long id, PaisDTO sport) {
+        countryLogic.updateCountry(sport);
+    }
+
+    @GET
+    @Path("mostPopulated")
+    public PaisDTO getMostPopulated() {
+        return countryLogic.getMostPopulated();
+    }
+
+    @GET
+    @Path("leastPopulated")
+    public PaisDTO getLeastPopulated() {
+        return countryLogic.getLeastPopulated();
+    }
 }

@@ -7,8 +7,3 @@
             urlsProvider.registerUrl(context);
         }]);
 })();
- ciudadModule.constant('ciudad.skipMock', true);
-
-     iudadModule.config(['ciudad.context', 'MockModule.urlsProvider','ciudad.skipMock', function (context, urlsProvider, skipMock) {
-             urlsProvider.registerUrl(context, skipMock);
-         }]);

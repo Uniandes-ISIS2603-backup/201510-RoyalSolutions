@@ -7,9 +7,3 @@
             urlsProvider.registerUrl(context);
         }]);
 })();
-  visitaModule.constant('visita.skipMock', true);
-	
-	     visitaModule.config(['visita.context', 'MockModule.urlsProvider','visita.skipMock', function (context, urlsProvider, skipMock) {
-	             urlsProvider.registerUrl(context, skipMock);
-	         }]);
-	

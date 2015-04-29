@@ -1,4 +1,4 @@
-(function (angular) {
+(function () {
     var mocksModule = angular.module('MockModule', ['ngMockE2E']);
 
     mocksModule.constant('MockModule.baseUrl', 'webresources');
@@ -13,8 +13,8 @@
                     if (params && params.page && params.maxRecords) {
                         var start_index = (params.page - 1) * params.maxRecords;
                         var end_index = start_index + params.maxRecords;
-                        responseObj.records = mockRecords[entity_url].slice(start_index, end_index);
-                    } else {
+                        responseObj.records = mockRecords[entity_url].slice(start_index,end_index);
+                    }else {
                         responseObj.records = mockRecords[entity_url];
                     }
                     return [200, responseObj, {}];
@@ -54,26 +54,49 @@
                     return [200, null, {}];
                 });
             }
-
-            function skipUrl(entity_url) {
-                var fullUrl = baseUrl + '/' + entity_url;
-                var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
-                $httpBackend.whenGET(fullUrl).passThrough();
-                $httpBackend.whenGET(url_regexp).passThrough();
-                $httpBackend.whenPOST(fullUrl).passThrough();
-                $httpBackend.whenPUT(url_regexp).passThrough();
-                $httpBackend.whenDELETE(url_regexp).passThrough();
-            }
+            ;
             var ignore_regexp = new RegExp('^((?!' + baseUrl + ').)*$');
             $httpBackend.whenGET(ignore_regexp).passThrough();
             for (var i in urls) {
                 if (urls.hasOwnProperty(i)) {
-                    if (urls[i].skip) {
-                        skipUrl(urls[i].url);
-                    } else {
-                        mockUrls(urls[i].url);
-                    }
+                    mockUrls(urls[i]);
                 }
             }
         }]);
-})(window.angular);
+})();
+(function (angular) {
+      var mocksModule = angular.module('MockModule', ['ngMockE2E']);
+ 
+      mocksModule.constant('MockModule.baseUrl', 'webresources');
+ 
+      mocksModule.run(['$httpBackend', 'MockModule.urls', 'MockModule.mockRecords', 'MockModule.baseUrl', function ($httpBackend, urls, mockRecords, baseUrl) {
+              function mockUrls(entity_url) 
+ 
+              //Función para indicar a los mock que deben permitir las solicitudes de la URL
+             function skipUrl(entity_url) {
+                 var fullUrl = baseUrl + '/' + entity_url;
+                 var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
+                $httpBackend.whenGET(fullUrl).passThrough();
+                 $httpBackend.whenGET(url_regexp).passThrough();
+                 $httpBackend.whenPOST(fullUrl).passThrough();
+                 $httpBackend.whenPUT(url_regexp).passThrough();
+                 $httpBackend.whenDELETE(url_regexp).passThrough();
+             }
+             var ignore_regexp = new RegExp('^((?!' + baseUrl + ').)*$');
+             $httpBackend.whenGET(ignore_regexp).passThrough();
+             for (var i in urls) {
+                 if (urls.hasOwnProperty(i)) {
+                    /*
+                     Cuando la URL a registrar tiene el flag de ignorar en true,
+                     se llama la función creada para permitir el paso de las solicitudes.
+                     De lo contrario se activan los mock para dicha URL.
+                     */
+                     if (urls[i].skip) {
+                         skipUrl(urls[i].url);
+                     } else {
+                         mockUrls(urls[i].url);
+                     }
+                 }
+             }
+         }]);
+ })(window.angular);

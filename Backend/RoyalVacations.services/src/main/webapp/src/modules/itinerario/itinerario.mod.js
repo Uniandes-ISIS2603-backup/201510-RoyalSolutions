@@ -7,3 +7,8 @@
             urlsProvider.registerUrl(context);
         }]);
 })();
+ itinerarioModule.constant('itinerario.skipMock', true);
+	
+	     itinerarioModule.config(['itinerario.context', 'MockModule.urlsProvider','itinerario.skipMock', function (context, urlsProvider, skipMock) {
+	             urlsProvider.registerUrl(context, skipMock);
+	         }]);

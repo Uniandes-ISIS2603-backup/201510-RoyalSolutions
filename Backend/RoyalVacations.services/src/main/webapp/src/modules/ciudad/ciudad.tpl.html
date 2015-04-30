@@ -37,8 +37,8 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="record in records">
-					<td>{{record.nombre}}</td>
-					<td>{{record.poblacion}}</td>
+					<td>{{record.name}}</td>
+					<td>{{record.population}}</td>
                                         <td>{{ciudadCtrl.getPaisName(record.pais)}}</td>
 					<td>
 						<button class="btn btn-default btn-sm" ng-click="ciudadCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
@@ -54,11 +54,11 @@
 			<input id="nombre" class="form-control" type="hidden" ng-model="currentRecord.id"/>
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.nombre"/>
+				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.name"/>
 			</div>
 			<div class="form-group">
 				<label for="población">Población</label>
-				<input id="población" class="form-control" type="number" ng-model="currentRecord.poblacion"/>
+				<input id="población" class="form-control" type="number" ng-model="currentRecord.population"/>
                         </div>
                         <div class="form-group">
                                 <label for="pais">Pais</label>

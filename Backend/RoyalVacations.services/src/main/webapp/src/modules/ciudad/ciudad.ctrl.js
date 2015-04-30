@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     var ciudadModule = angular.module('ciudadModule');
 
     ciudadModule.controller('ciudadCtrl', ['$scope', 'ciudadService','paisService', function ($scope, ciudadService, paisService) {
@@ -35,4 +35,4 @@
                 });
             };
         }]);
-})();
+})(window.angular);

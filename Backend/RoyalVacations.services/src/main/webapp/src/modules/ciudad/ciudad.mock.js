@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     var ciudadModule = angular.module('ciudadModule');
 
     ciudadModule.run(['$httpBackend', 'ciudad.context', 'MockModule.mockRecords', function ($httpBackend, context, mockRecords) {
@@ -40,4 +40,4 @@
                 }
             });
         }]);
-})();
+})(window.angular);

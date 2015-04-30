@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     var itinerarioModule = angular.module('itinerarioModule');
 
     itinerarioModule.controller('itinerarioCtrl', ['$scope', 'itinerarioService', function ($scope, itinerarioService) {
@@ -12,4 +12,4 @@
                return fechaStr[0];
             };
         }]);
-})();
+})(window.angular);

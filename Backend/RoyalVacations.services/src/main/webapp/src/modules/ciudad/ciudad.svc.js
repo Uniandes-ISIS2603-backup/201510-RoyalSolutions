@@ -1,4 +1,4 @@
-(function(){
+(function(angular){
     var ciudadModule = angular.module('ciudadModule');
     
     ciudadModule.service('ciudadService', ['CRUDBase','ciudad.context', function(CRUDBase, context){
@@ -11,4 +11,4 @@
                 return this.api.customGET('leastPopulated');
             };
     }]);
-})();
+})(window.angular);

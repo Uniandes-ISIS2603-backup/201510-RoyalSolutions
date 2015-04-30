@@ -63,16 +63,4 @@ public class PaisService
     public void updatePais(@PathParam("id") Long id, PaisDTO pais) {
         paisLogic.updatePais(pais);
     }
-
-    @GET
-    @Path("mostPopulated")
-    public PaisDTO getMostPopulated() {
-        return paisLogic.getMostPopulated();
-    }
-
-    @GET
-    @Path("leastPopulated")
-    public PaisDTO getLeastPopulated() {
-        return paisLogic.getLeastPopulated();
-    }
 }

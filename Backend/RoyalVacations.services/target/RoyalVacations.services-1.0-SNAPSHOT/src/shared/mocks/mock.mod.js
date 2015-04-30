@@ -1,4 +1,4 @@
-(function () {
+(function (angular) {
     var mocksModule = angular.module('MockModule', ['ngMockE2E']);
 
     mocksModule.constant('MockModule.baseUrl', 'webresources');
@@ -62,18 +62,7 @@
                     mockUrls(urls[i]);
                 }
             }
-        }]);
-})();
-(function (angular) {
-      var mocksModule = angular.module('MockModule', ['ngMockE2E']);
- 
-      mocksModule.constant('MockModule.baseUrl', 'webresources');
- 
-      mocksModule.run(['$httpBackend', 'MockModule.urls', 'MockModule.mockRecords', 'MockModule.baseUrl', function ($httpBackend, urls, mockRecords, baseUrl) {
-              function mockUrls(entity_url) 
- 
-              //Función para indicar a los mock que deben permitir las solicitudes de la URL
-             function skipUrl(entity_url) {
+  function skipUrl(entity_url) {
                  var fullUrl = baseUrl + '/' + entity_url;
                  var url_regexp = new RegExp(fullUrl + '/([0-9]+)');
                 $httpBackend.whenGET(fullUrl).passThrough();

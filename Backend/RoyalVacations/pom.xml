@@ -8,6 +8,7 @@
     <modules>
         <module>../RoyalVacations.services</module>
         <module>../RoyalVacations.logic</module>
+        <module>RoyalVacations.web.test</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

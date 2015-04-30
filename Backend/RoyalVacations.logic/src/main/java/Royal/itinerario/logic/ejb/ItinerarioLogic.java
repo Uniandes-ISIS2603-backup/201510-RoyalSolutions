@@ -8,6 +8,7 @@ package Royal.itinerario.logic.ejb;
 import Royal.itinerario.logic.api.IItinerarioLogic;
 import Royal.itinerario.logic.converter.ItinerarioConverter;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
+import Royal.itinerario.logic.dto.ItinerarioPageDTO;
 import Royal.itinerario.logic.entity.ItinerarioEntity;
 import java.util.List;
 import javax.ejb.LocalBean;
@@ -52,5 +53,20 @@ public class ItinerarioLogic implements IItinerarioLogic
     public void updateItinerario(ItinerarioDTO country) {
         ItinerarioEntity entity = entityManager.merge(ItinerarioConverter.persistenceDTO2Entity(country));
         ItinerarioConverter.entity2PersistenceDTO(entity);
+    }
+
+    public ItinerarioPageDTO getItinerarios(Integer page, Integer maxRecords) {
+Query count = entityManager.createQuery("select count(u) from ItinerarioEntity u");
+        Long regCount = 0L;
+        regCount = Long.parseLong(count.getSingleResult().toString());
+        Query q = entityManager.createQuery("select u from ItinerarioEntity u");
+        if (page != null && maxRecords != null) {
+            q.setFirstResult((page - 1) * maxRecords);
+            q.setMaxResults(maxRecords);
+        }
+        ItinerarioPageDTO response = new ItinerarioPageDTO();
+        response.setTotalRecords(regCount);
+        response.setRecords(ItinerarioConverter.entity2PersistenceDTOList(q.getResultList()));
+        return response;
     }
 }

@@ -13,7 +13,7 @@
             this.getPaisName = function(id){
                 for (var i in $scope.paisRecords) {
                     if ($scope.paisRecords[i].id === id) {
-                        return $scope.paisRecords[i].nombre;
+                        return $scope.paisRecords[i].name;
                     }
                 }
                 return;

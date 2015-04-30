@@ -39,7 +39,7 @@
 				<tr ng-repeat="record in records">
 					<td>{{record.name}}</td>
 					<td>{{record.population}}</td>
-                                        <td>{{ciudadCtrl.getPaisName(record.pais)}}</td>
+                                        <td>{{ciudadCtrl.getPaisName(record.country)}}</td>
 					<td>
 						<button class="btn btn-default btn-sm" ng-click="ciudadCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 						<button class="btn btn-default btn-sm" ng-click="ciudadCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group">
                                 <label for="pais">Pais</label>
-                                <select id="pais" class="form-control" ng-options="pais.id as pais.nombre for pais in paisRecords" ng-model="currentRecord.pais"></select>
+                                <select id="pais" class="form-control" ng-options="pais.id as pais.name for pais in paisRecords" ng-model="currentRecord.country"></select>
                         </div>
 		</form>
 	</div>

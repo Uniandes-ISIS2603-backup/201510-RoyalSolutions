@@ -26,15 +26,15 @@ public class PaisLogic implements IPaisLogic{
     }
 
     public List<PaisDTO> getPaises() {
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from PaisEntity u");
         return PaisConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
     public PaisPageDTO getPaises(Integer page, Integer maxRecords) {
-        Query count = entityManager.createQuery("select count(u) from CountryEntity u");
+        Query count = entityManager.createQuery("select count(u) from PaisEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
-        Query q = entityManager.createQuery("select u from CountryEntity u");
+        Query q = entityManager.createQuery("select u from PaisEntity u");
         if (page != null && maxRecords != null) {
             q.setFirstResult((page - 1) * maxRecords);
             q.setMaxResults(maxRecords);
@@ -60,12 +60,12 @@ public class PaisLogic implements IPaisLogic{
     }
 
     public PaisDTO getMostPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MAX(v.population) from CountryEntity v)");
+        Query query = entityManager.createQuery("select u from PaisEntity u WHERE u.population = (SELECT MAX(v.population) from PaisEntity v)");
         return PaisConverter.entity2PersistenceDTO((PaisEntity)query.getSingleResult());
     }
 
     public PaisDTO getLeastPopulated() {
-        Query query = entityManager.createQuery("select u from CountryEntity u WHERE u.population = (SELECT MIN(v.population) from CountryEntity v)");
+        Query query = entityManager.createQuery("select u from PaisEntity u WHERE u.population = (SELECT MIN(v.population) from PaisEntity v)");
         return PaisConverter.entity2PersistenceDTO((PaisEntity)query.getSingleResult());
     }
 }

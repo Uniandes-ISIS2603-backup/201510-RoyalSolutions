@@ -7,6 +7,7 @@ package Royal.service;
 
 import Royal.itinerario.logic.api.IItinerarioLogic;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
+import Royal.itinerario.logic.dto.ItinerarioPageDTO;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -52,8 +53,8 @@ public class ItinerarioService
     }
     
     @GET
-    public List getItinerarios() {
-        return itinerarioLogicService.getItinerarios();
+    public ItinerarioPageDTO getItinerarios(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
+        return itinerarioLogicService.getItinerarios(page, maxRecords);
     }
 
     @PUT

@@ -7,6 +7,7 @@ package Royal.service;
 
 import Royal.itinerario.logic.api.IItinerarioLogic;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
+import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -48,6 +49,11 @@ public class ItinerarioService
     @Path("{id}")
     public ItinerarioDTO getItinerario(@PathParam("id") Long id) {
         return itinerarioLogicService.getItinerario(id);
+    }
+    
+    @GET
+    public List getItinerarios() {
+        return itinerarioLogicService.getItinerarios();
     }
 
     @PUT

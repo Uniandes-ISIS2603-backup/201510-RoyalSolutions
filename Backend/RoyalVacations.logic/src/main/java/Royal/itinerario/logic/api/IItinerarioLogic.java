@@ -7,6 +7,7 @@ package Royal.itinerario.logic.api;
 
 import java.util.List;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
+import Royal.itinerario.logic.dto.ItinerarioPageDTO;
 
 /**
  *
@@ -17,6 +18,8 @@ public interface IItinerarioLogic
     public ItinerarioDTO createItinerario(ItinerarioDTO detail);
 
     public List<ItinerarioDTO> getItinerarios();
+    
+    public ItinerarioPageDTO getItinerarios(Integer page, Integer maxRecords);
 
     public ItinerarioDTO getItinerario(Long id);
 

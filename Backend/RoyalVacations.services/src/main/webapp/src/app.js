@@ -11,6 +11,8 @@
                 templateUrl: 'src/modules/pais/pais.tpl.html'
             }).when('/visitas', {
                 templateUrl: 'src/modules/visita/visita.tpl.html'
+            }).when('/login', {
+                templateUrl: 'src/modules/login/login.html'
             }).otherwise('/');         
         }]);
 })();

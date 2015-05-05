@@ -8,8 +8,8 @@ public class CiudadDTO {
     private Long id;
 
     private String name;
-
-    private Integer population;
+    
+    private int population;
     
     private Long country;
 
@@ -29,12 +29,12 @@ public class CiudadDTO {
         this.name = name;
     }
 
-    public Integer getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(Integer pPopulation) {
-        this.population = pPopulation;
+    public void setPopulation(int population) {
+        this.population = population;
     }
 
     public Long getCountry() {

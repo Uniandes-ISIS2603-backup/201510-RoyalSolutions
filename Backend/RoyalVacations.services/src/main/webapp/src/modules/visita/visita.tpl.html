@@ -36,8 +36,8 @@
 			<tbody>
 				<tr ng-repeat="record in records">
 					<td>{{visitaCtrl.getCiudadName(record.ciudad)}}</td>
-					<td>{{visitaCtrl.formatearFecha(record.fechaInicio)}}</td>
-					<td>{{visitaCtrl.formatearFecha(record.fechaFinal)}}</td>
+					<td>{{visitaCtrl.formatearFecha(record.inicio)}}</td>
+					<td>{{visitaCtrl.formatearFecha(record.fin)}}</td>
 					<td>
                                                 <ul class="nav nav-pills nav-stacked">
                                                     <li><a href="#/eventos">Ver eventos</a></li>
@@ -55,16 +55,20 @@
 			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
                         <div class="form-group">
                                 <label for="ciudad">Ciudad</label>
-                                <select id="ciudad" class="form-control" ng-options="ciudad.id as ciudad.nombre for ciudad in ciudadRecords" ng-model="currentRecord.ciudad"></select>
+                                <select id="ciudad" class="form-control" ng-options="ciudad.id as ciudad.name for ciudad in ciudadRecords" ng-model="currentRecord.ciudad"></select>
+                        </div>
+                        <div class="form-group">
+                                <label for="itinerario">Itinerario</label>
+                                <select id="itinerario" class="form-control" ng-options="itinerario.id as itinerario.name for itinerario in itinerarioRecords" ng-model="currentRecord.itinerario"></select>
                         </div>
 
 			<div class="form-group">
 				<label for="fechaInicio">Fecha Inicio</label>
-				<input id="fechaInicio" class="form-control" type="date" ng-model="currentRecord.fechaInicio"/>
+				<input id="fechaInicio" class="form-control" type="date" ng-model="currentRecord.inicio"/>
 			</div>
 			<div class="form-group">
 				<label for="fechaFinal">Fecha Final</label>
-				<input id="fechaFinal" class="form-control" type="date" ng-model="currentRecord.fechaFinal"/>
+				<input id="fechaFinal" class="form-control" type="date" ng-model="currentRecord.fin"/>
 			</div>
 		</form>
 	</div>

@@ -1,7 +1,7 @@
-(function () {
+(function (angular) {
     var visitaModule = angular.module('visitaModule');
 
-    visitaModule.controller('visitaCtrl', ['$scope', 'visitaService','ciudadService', function ($scope, visitaService, ciudadService) {
+    visitaModule.controller('visitaCtrl', ['$scope', 'visitaService','ciudadService','itinerarioService', function ($scope, visitaService, ciudadService, itinerarioService) {
             visitaService.extendCtrl(this, $scope);
             
             this.fetchRecords();
@@ -24,5 +24,18 @@
                 }
                 return;
             };
+            
+            itinerarioService.fetchRecords().then(function(data){
+                $scope.itinerarioRecords = data;
+            });
+            
+            this.getItinerarioName = function(id){
+                for (var i in $scope.itinerarioRecords) {
+                    if ($scope.Records[i].id === id) {
+                        return $scope.itinerarioRecords[i].nombre;
+                    }
+                }
+                return;
+            };
         }]);
-})();
+})(window.angular);

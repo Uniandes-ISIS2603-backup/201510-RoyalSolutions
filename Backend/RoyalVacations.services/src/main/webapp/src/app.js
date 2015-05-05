@@ -1,6 +1,6 @@
 (function () {
 
-    var mainApp = angular.module('mainApp', ['ngRoute', 'itinerarioModule', 'ciudadModule','paisModule','visitaModule']);
+    var mainApp = angular.module('mainApp', ['ngRoute', 'itinerarioModule', 'ciudadModule','paisModule','visitaModule','loginModule']);
 
     mainApp.config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/itinerarios', {

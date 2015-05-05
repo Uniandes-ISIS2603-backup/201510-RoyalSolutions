@@ -12,7 +12,7 @@
             }).when('/visitas', {
                 templateUrl: 'src/modules/visita/visita.tpl.html'
             }).when('/login', {
-                templateUrl: 'src/modules/login/login.html'
+                templateUrl: 'src/modules/login/login.tpl.html'
             }).otherwise('/');         
         }]);
 })();

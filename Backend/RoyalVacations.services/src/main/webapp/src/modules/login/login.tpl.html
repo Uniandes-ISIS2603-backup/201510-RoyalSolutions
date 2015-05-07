@@ -4,9 +4,9 @@
 	<div class="container">
 		<h1>Bienvenido!</h1>
 		<form class="form">
-                    <input id="name" type="text" placeholder="Username" ng-model="currentRecord.id">
+                    <input id="name" type="text" placeholder="Username" ng-model="currentRecord.login">
                     <input id="password" type="password" placeholder="Password" ng-model="currentRecord.password">
-                    <button id="login-button" ng-click="loginCtrl.validarUsuario( )">Login</button>
+                    <button id="login-button" ng-click="loginCtrl.validarUsuario(currentRecord.login, currentRecord.password)">Login</button>
 		</form>
 	</div>
    </div>

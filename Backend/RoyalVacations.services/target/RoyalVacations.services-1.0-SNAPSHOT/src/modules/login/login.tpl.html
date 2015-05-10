@@ -1,15 +1,33 @@
+<html ng-app="login">
 <div ng-controller="loginCtrl as loginCtrl">
-    
-  <div class="wrapper">
-	<div class="container">
-		<h1>Bienvenido!</h1>
-		<form class="form">
-                    <input id="name" type="text" placeholder="Username" ng-model="currentRecord.id">
-                    <input id="password" type="password" placeholder="Password" ng-model="currentRecord.password">
-                    <button id="login-button" ng-click="loginCtrl.saveRecord( )">Login</button>
+	<div id="header">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#country-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Log in</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="login-navbar">
+					<button class="btn btn-default navbar-btn" ng-hide="loginCtrl.editMode" ng-click="loginCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear cuenta</button>
+                                        <button class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.saveRecord()" href="#/login"><span class="glyphicon glyphicon-floppy-disk"></span> Registrarse</button>
+					<button class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+			</div>
+		</nav>
+	</div>
+        <li><a href="#/sesion">Usuario Registrado? Inicia sesion aqui</a></li>
+	<div ng-show="loginCtrl.editMode">
+		<form name="loginForm" role="form">
+                    <input id="name" type="text" placeholder="Username" ng-model="currentRecord.login">
+                    <input id="password" type="password" placeholder="Password" ng-model="currentRecord.contrasena">
 		</form>
 	</div>
-   </div>
-
 </div>
-

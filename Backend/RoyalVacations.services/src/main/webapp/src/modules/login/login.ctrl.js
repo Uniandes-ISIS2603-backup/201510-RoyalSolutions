@@ -12,18 +12,14 @@
             
             this.validarUsuario = function(id,password){
                 for(var i in $scope.loginRecords){
-                    if ($scope.loginRecords[i].id === id ) {
-                        if( $scope.loginRecords[i].password === password ) {
-                           $scope.loginUsuarioActual = id; 
-                           window.alert("Bienvenido" + id );
+                    if ($scope.loginRecords[i].login === id ) {
+                        if( $scope.loginRecords[i].contrasena === password ) {
+                           $scope.loginUsuarioActual = $scope.loginRecords[i].id; 
+                           window.alert("Bienvenido " + id );
                         }   
                         else{
-                            window.alert("Lo sentimos,login incorrecto");
+                            window.alert("Lo sentimos,contraseña incorrecto");
                         }
-                    }
-                    else {
-                        this.saveRecord;
-                        $scope.loginUsuarioActual = id;
                     }
                 }
             };

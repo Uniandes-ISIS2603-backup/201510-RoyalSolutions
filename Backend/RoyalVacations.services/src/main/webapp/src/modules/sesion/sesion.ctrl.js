@@ -1,8 +1,8 @@
 (function (angular) {
-    var loginModule = angular.module('loginModule');
+    var sesionModule = angular.module('sesionModule');
 
-    loginModule.controller('loginCtrl', ['$scope', 'loginService', function ($scope, loginService) {
-            loginService.extendCtrl(this, $scope);
+    sesionModule.controller('sesionCtrl', ['$scope', 'sesionService', 'loginService', function ($scope, sesionService, loginService) {
+            sesionService.extendCtrl(this, $scope);
             
             this.fetchRecords();
        
@@ -14,11 +14,11 @@
                 for(var i in $scope.loginRecords){
                     if ($scope.loginRecords[i].login === id ) {
                         if( $scope.loginRecords[i].contrasena === password ) {
-                           $scope.loginUsuarioActual = $scope.loginRecords[i].id; 
-                           window.alert("Bienvenido " + id );
+                           $scope.loginUsuarioActual = loginRecords[i].id; 
+                           window.alert("Bienvenido" + id );
                         }   
                         else{
-                            window.alert("Lo sentimos,contraseña incorrecto");
+                            window.alert("Lo sentimos,login incorrecto");
                         }
                     }
                 }

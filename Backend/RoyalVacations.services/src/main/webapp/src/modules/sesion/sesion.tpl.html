@@ -1,0 +1,13 @@
+<div ng-controller="loginCtrl as loginCtrl">
+    
+  <div class="wrapper">
+	<div class="container">
+		<h1>Bienvenido!</h1>
+		<form class="form">
+                    <input id="name" type="text" placeholder="Username" ng-model="currentRecord.login">
+                    <input id="password" type="password" placeholder="Password" ng-model="currentRecord.contrasena">
+                    <button id="login-button" ng-click="loginCtrl.validarUsuario(currentRecord.login, currentRecord.contrasena)" href="#/">Login</button>
+		</form>
+	</div>
+   </div>
+</div>

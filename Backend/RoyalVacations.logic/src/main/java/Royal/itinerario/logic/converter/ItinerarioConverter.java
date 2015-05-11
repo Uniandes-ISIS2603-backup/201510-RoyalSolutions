@@ -22,6 +22,9 @@ public class ItinerarioConverter
             dto.setName(entity.getName());
             dto.setInicio(entity.getInicio());
             dto.setFin(entity.getFin());
+            if (entity.getUsuario() != null) {
+                dto.setUsuario(entity.getUsuario().getId());
+            }
             return dto;
         } else {
             return null;

@@ -19,7 +19,7 @@
             this.getCiudadName = function(id){
                 for (var i in $scope.ciudadRecords) {
                     if ($scope.ciudadRecords[i].id === id) {
-                        return $scope.ciudadRecords[i].nombre;
+                        return $scope.ciudadRecords[i].name;
                     }
                 }
                 return;
@@ -32,7 +32,7 @@
             this.getItinerarioName = function(id){
                 for (var i in $scope.itinerarioRecords) {
                     if ($scope.Records[i].id === id) {
-                        return $scope.itinerarioRecords[i].nombre;
+                        return $scope.itinerarioRecords[i].name;
                     }
                 }
                 return;

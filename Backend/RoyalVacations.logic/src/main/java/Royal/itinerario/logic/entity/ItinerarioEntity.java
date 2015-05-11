@@ -5,6 +5,7 @@
  */
 package Royal.itinerario.logic.entity;
 
+import Royal.login.logic.entity.LoginEntity;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,8 @@ public class ItinerarioEntity
     private Date inicio;
     private Date fin;
     @ManyToOne
-
+    private LoginEntity usuario;
+    
     public Long getId() {
         return id;
     }
@@ -56,5 +58,15 @@ public class ItinerarioEntity
 
     public void setFin(Date pFin) {
         this.fin = pFin;
+    }
+    
+    public LoginEntity getUsuario()
+    {
+        return usuario;
+    }
+    
+    public void setUsuario(LoginEntity usuario)
+    {
+        this.usuario = usuario;
     }
 }

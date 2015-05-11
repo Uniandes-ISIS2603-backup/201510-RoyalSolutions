@@ -10,6 +10,7 @@ import Royal.itinerario.logic.converter.ItinerarioConverter;
 import Royal.itinerario.logic.dto.ItinerarioDTO;
 import Royal.itinerario.logic.dto.ItinerarioPageDTO;
 import Royal.itinerario.logic.entity.ItinerarioEntity;
+import Royal.login.logic.entity.LoginEntity;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -32,6 +33,10 @@ public class ItinerarioLogic implements IItinerarioLogic
     
     public ItinerarioDTO createItinerario(ItinerarioDTO itinerario) {
         ItinerarioEntity entity = ItinerarioConverter.persistenceDTO2Entity(itinerario);
+        LoginEntity login = this.getSelectedUsuario(itinerario);
+        if (login != null) {
+            entity.setUsuario(login);
+        }
         entityManager.persist(entity);
         return ItinerarioConverter.entity2PersistenceDTO(entity);
     }
@@ -56,7 +61,7 @@ public class ItinerarioLogic implements IItinerarioLogic
     }
 
     public ItinerarioPageDTO getItinerarios(Integer page, Integer maxRecords) {
-Query count = entityManager.createQuery("select count(u) from ItinerarioEntity u");
+        Query count = entityManager.createQuery("select count(u) from ItinerarioEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
         Query q = entityManager.createQuery("select u from ItinerarioEntity u");
@@ -69,4 +74,12 @@ Query count = entityManager.createQuery("select count(u) from ItinerarioEntity u
         response.setRecords(ItinerarioConverter.entity2PersistenceDTOList(q.getResultList()));
         return response;
     }
+    
+    private LoginEntity getSelectedUsuario(ItinerarioDTO itinerario){
+        if (itinerario != null && itinerario.getUsuario() != null && itinerario.getUsuario() != null) {
+            return entityManager.find(LoginEntity.class, itinerario.getUsuario());
+        }else{
+            return null;
+        }
+    }  
 }

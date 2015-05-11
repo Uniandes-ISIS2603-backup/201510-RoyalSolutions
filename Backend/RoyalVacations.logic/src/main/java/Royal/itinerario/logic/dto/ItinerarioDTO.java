@@ -18,7 +18,8 @@ public class ItinerarioDTO
     private String name;
     private Date inicio;
     private Date fin;
-
+    private Long usuario;
+    
     public Long getId() {
         return id;
     }
@@ -49,5 +50,13 @@ public class ItinerarioDTO
 
     public void setFin(Date pFin) {
         this.fin = pFin;
+    }
+    
+    public Long getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Long usuario) {
+        this.usuario = usuario;
     }
 }  

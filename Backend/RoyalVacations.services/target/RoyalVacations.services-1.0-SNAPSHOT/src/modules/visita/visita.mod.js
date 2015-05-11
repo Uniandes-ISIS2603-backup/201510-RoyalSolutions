@@ -1,5 +1,5 @@
 (function (angular) {
-    var visitaModule = angular.module('visitaModule', ['CrudModule', 'MockModule','ciudadModule']);
+    var visitaModule = angular.module('visitaModule', ['CrudModule', 'MockModule','ciudadModule','itinerarioModule']);
 
     visitaModule.constant('visita.context', 'visita');
 

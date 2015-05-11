@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Royal.visita.logic.dto;
+package Royal.evento.logic.dto;
 
 import java.sql.Date;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,18 +12,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author estudiante
  */
-
 @XmlRootElement
-public class VisitaDTO {
+public class EventoDTO 
+{
     private Long id;
 
-    private Date inicio;
+    private String name;
     
-    private Date fin;
+    private Date fecha;
     
     private Long ciudad;
-    
-    private Long itinerario;
 
     public Long getId() {
         return id;
@@ -33,20 +31,20 @@ public class VisitaDTO {
         this.id = id;
     }
 
-    public Date getInicio() {
-        return inicio;
+    public String getName() {
+        return name;
     }
 
-    public void setInicio(Date inicio) {
-        this.inicio = inicio;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getFin() {
-        return fin;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setFin(Date fin) {
-        this.fin = fin;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public Long getCiudad() {
@@ -55,13 +53,5 @@ public class VisitaDTO {
 
     public void setCiudad(Long ciudad) {
         this.ciudad = ciudad;
-    }
-    
-    public Long getItinerario() {
-        return itinerario;
-    }
-
-    public void setItinerario(Long itinerario) {
-        this.itinerario = itinerario;
     }
 }

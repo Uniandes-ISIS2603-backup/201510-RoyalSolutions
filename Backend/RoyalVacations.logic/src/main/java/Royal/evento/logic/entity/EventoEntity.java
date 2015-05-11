@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Royal.visita.logic.entity;
+package Royal.evento.logic.entity;
 
 import Royal.ciudad.logic.entity.CiudadEntity;
-import Royal.itinerario.logic.entity.ItinerarioEntity;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,19 +16,19 @@ import javax.persistence.ManyToOne;
  *
  * @author estudiante
  */
-
 @Entity
-public class VisitaEntity 
+public class EventoEntity 
 {
     @Id
-    @GeneratedValue(generator = "Visita")
+    @GeneratedValue(generator = "Evento")
     private Long id;
-    private Date inicio; 
-    private Date fin;
+
+    private String name;
+    
+    private Date fecha;
+    
     @ManyToOne
     private CiudadEntity ciudad;
-    @ManyToOne
-    private ItinerarioEntity itinerario;
 
     public Long getId() {
         return id;
@@ -39,20 +38,20 @@ public class VisitaEntity
         this.id = id;
     }
 
-    public Date getInicio() {
-        return inicio;
+    public String getName() {
+        return name;
     }
 
-    public void setInicio(Date inicio) {
-        this.inicio = inicio;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getFin() {
-        return fin;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setFin(Date fin) {
-        this.fin = fin;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public CiudadEntity getCiudad() {
@@ -63,11 +62,4 @@ public class VisitaEntity
         this.ciudad = ciudad;
     }
     
-    public ItinerarioEntity getItinerario() {
-        return itinerario;
-    }
-
-    public void setItinerario(ItinerarioEntity itinerario) {
-        this.itinerario = itinerario;
-    }
 }

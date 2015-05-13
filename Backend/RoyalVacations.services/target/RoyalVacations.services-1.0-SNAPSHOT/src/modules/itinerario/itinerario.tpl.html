@@ -51,8 +51,8 @@
 	</div>
 	<div ng-show="itinerarioCtrl.editMode">
 		<form name="ciudadForm" role="form">
-			<input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
-			<div class="form-group">
+                    <input id="name" class="form-control" type="hidden" ng-model="currentRecord.id"/>
+                        <div class="form-group">
 				<label for="nombre">Nombre</label>
 				<input id="nombre" class="form-control" type="text" ng-model="currentRecord.name"/>
 			</div>
@@ -63,6 +63,10 @@
 			<div class="form-group">
 				<label for="fechaFinal">Fecha Final</label>
 				<input id="fechaFinal" class="form-control" type="date" ng-model="currentRecord.fin"/>
+			</div>
+                                <div class="form-group">
+				<label for="idUsuario">Id Usuario</label>
+                                <input id="usuario" class="form-control" type="text" ng-model="currentRecord.usuario"/>			
 			</div>
 		</form>
 	</div>

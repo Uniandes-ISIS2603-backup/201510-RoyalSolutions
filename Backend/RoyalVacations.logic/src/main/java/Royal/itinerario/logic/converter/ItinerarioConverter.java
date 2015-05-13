@@ -19,6 +19,7 @@ public class ItinerarioConverter
     public static ItinerarioDTO entity2PersistenceDTO(ItinerarioEntity entity) {
         if (entity != null) {
             ItinerarioDTO dto = new ItinerarioDTO();
+            dto.setId(entity.getId());
             dto.setName(entity.getName());
             dto.setInicio(entity.getInicio());
             dto.setFin(entity.getFin());
@@ -34,6 +35,7 @@ public class ItinerarioConverter
     public static ItinerarioEntity persistenceDTO2Entity(ItinerarioDTO dto) {
         if (dto != null) {
             ItinerarioEntity entity = new ItinerarioEntity();
+            entity.setId(dto.getId());
             entity.setName(dto.getName());
             entity.setInicio(dto.getInicio());
             entity.setFin(dto.getFin());

@@ -12,6 +12,17 @@
                return fechaStr[0];
             };
             
+            this.guardar = function(fecha1, fecha2, idItinerario) {
+                if(this.getItinerarioInicio(idItinerario) < fecha1 && fecha2 < this.getItinerarioFin(idItinerario) && fecha1 < fecha2)
+                {
+                    this.saveRecord();
+                }
+                else
+                {
+                    window.alert("Las fechas de la visita deben estar dentro del intervalo de tiempo del itinerario seleccionado");
+                }
+            };
+            
             ciudadService.fetchRecords().then(function(data){
                 $scope.ciudadRecords = data;
             });
@@ -31,8 +42,26 @@
             
             this.getItinerarioName = function(id){
                 for (var i in $scope.itinerarioRecords) {
-                    if ($scope.Records[i].id === id) {
+                    if ($scope.itinerarioRecords[i].id === id) {
                         return $scope.itinerarioRecords[i].name;
+                    }
+                }
+                return;
+            };
+            
+            this.getItinerarioInicio = function(id){
+                for (var i in $scope.itinerarioRecords) {
+                    if ($scope.itinerarioRecords[i].id === id) {
+                        return $scope.itinerarioRecords[i].inicio;
+                    }
+                }
+                return;
+            };
+            
+            this.getItinerarioFin = function(id){
+                for (var i in $scope.itinerarioRecords) {
+                    if ($scope.itinerarioRecords[i].id === id) {
+                        return $scope.itinerarioRecords[i].fin;
                     }
                 }
                 return;

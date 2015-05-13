@@ -1,7 +1,7 @@
 (function (angular) {
     var eventoVisitaModule = angular.module('eventoVisitaModule');
 
-    eventoVisitaModule.controller('eventoVisitaCtrl', ['$scope', 'eventoVisitaService','eventoService', 'visitaService', function ($scope, eventoVisitaService, eventoService, visitaService) {
+    eventoVisitaModule.controller('eventoVisitaCtrl', ['$scope', 'eventoVisitaService','eventoService', 'visitaService',function ($scope, eventoVisitaService, eventoService, visitaService) {
             eventoVisitaService.extendCtrl(this, $scope);
             
             this.fetchRecords();
@@ -50,7 +50,7 @@
                 {
                     this.saveRecord();
                 }
-            }
+            };
             
             visitaService.fetchRecords().then(function(data){
                 $scope.visitaRecords = data;

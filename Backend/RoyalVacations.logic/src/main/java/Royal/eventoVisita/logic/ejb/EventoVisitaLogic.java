@@ -17,6 +17,7 @@ import Royal.eventoVisita.logic.dto.EventoVisitaDTO;
 import Royal.eventoVisita.logic.dto.EventoVisitaPageDTO;
 import Royal.eventoVisita.logic.entity.EventoVisitaEntity;
 import static Royal.eventoVisita.logic.entity.EventoVisitaEntity_.evento;
+import Royal.visita.logic.entity.VisitaEntity;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -38,22 +39,26 @@ public class EventoVisitaLogic implements IEventoVisitaLogic
     @PersistenceContext(unitName = "RoyalPU")
     protected EntityManager entityManager;
 
-    public EventoVisitaDTO createEvento(EventoVisitaDTO Evento) {
-        EventoVisitaEntity entity = EventoVisitaConverter.persistenceDTO2Entity(Evento);
-        EventoEntity eve = this.getSelectedEvento(Evento);
-        if (eve != null) {
-            entity.setEvento(eve);
+    public EventoVisitaDTO createEventoVisita(EventoVisitaDTO EventoVisita) {
+        EventoVisitaEntity entity = EventoVisitaConverter.persistenceDTO2Entity(EventoVisita);
+        EventoEntity evento = this.getSelectedEvento(EventoVisita);
+        if (evento != null) {
+            entity.setEvento(evento);
+        }
+        VisitaEntity visita = this.getSelectedVisita(EventoVisita);
+        if (visita != null) {
+            entity.setVisita(visita);
         }
         entityManager.persist(entity);
         return EventoVisitaConverter.entity2PersistenceDTO(entity);
     }
 
-    public List<EventoVisitaDTO> getEventos() {
+    public List<EventoVisitaDTO> getEventoVisitas() {
         Query q = entityManager.createQuery("select u from EventoVisitaEntity u");
         return EventoVisitaConverter.entity2PersistenceDTOList(q.getResultList());
     }
 
-    public EventoVisitaPageDTO getEventos(Integer page, Integer maxRecords) {
+    public EventoVisitaPageDTO getEventoVisitas(Integer page, Integer maxRecords) {
         Query count = entityManager.createQuery("select count(u) from EventoVisitaEntity u");
         Long regCount = 0L;
         regCount = Long.parseLong(count.getSingleResult().toString());
@@ -68,23 +73,36 @@ public class EventoVisitaLogic implements IEventoVisitaLogic
         return response;
     }
 
-    public EventoVisitaDTO getEvento(Long id) {
+    public EventoVisitaDTO getEventoVisita(Long id) {
         return EventoVisitaConverter.entity2PersistenceDTO(entityManager.find(EventoVisitaEntity.class, id));
     }
 
-    public void deleteEvento(Long id) {
+    public void deleteEventoVisita(Long id) {
         EventoVisitaEntity entity = entityManager.find(EventoVisitaEntity.class, id);
         entityManager.remove(entity);
     }
 
-    public void updateEvento(EventoVisitaDTO eventoV) {
-        EventoVisitaEntity entity = entityManager.merge(EventoVisitaConverter.persistenceDTO2Entity(eventoV));
-        EventoEntity evento = this.getSelectedEvento(eventoV);
+    public void updateEventoVisita(EventoVisitaDTO EventoVisita) {
+        EventoVisitaEntity entity = entityManager.merge(EventoVisitaConverter.persistenceDTO2Entity(EventoVisita));
+        EventoEntity evento = this.getSelectedEvento(EventoVisita);
         if (evento != null) {
             entity.setEvento(evento);
         }
+        VisitaEntity visita = this.getSelectedVisita(EventoVisita);
+        if (visita != null) {
+            entity.setVisita(visita);
+        }
         EventoVisitaConverter.entity2PersistenceDTO(entity);
     }
+    
+    private VisitaEntity getSelectedVisita(EventoVisitaDTO EventoVisita){
+        if (EventoVisita != null && EventoVisita.getVisita() != null && EventoVisita.getVisita() != null) {
+            return entityManager.find(VisitaEntity.class, EventoVisita.getVisita());
+        }else{
+            return null;
+        }
+    } 
+    
     private EventoEntity getSelectedEvento(EventoVisitaDTO Evento){
         if (Evento != null && Evento.getEvento() != null && Evento.getEvento() != null) {
             return entityManager.find(EventoEntity.class, Evento.getEvento());

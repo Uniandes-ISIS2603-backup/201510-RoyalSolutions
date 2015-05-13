@@ -15,10 +15,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class EventoVisitaDTO
 {
+    private Long id;
+
     private Long evento;
     
     private Long visita;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public Long getEvento() {
         return evento;
     }

@@ -5,7 +5,6 @@
  */
 package Royal.eventoVisita.logic.dto;
 
-import Royal.evento.logic.dto.EventoDTO;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -19,7 +18,7 @@ public class EventoVisitaPageDTO
 {
      private Long totalRecords;
 
-    private List<EventoDTO> records;
+    private List<EventoVisitaDTO> records;
 
     public Long getTotalRecords() {
         return totalRecords;
@@ -29,11 +28,11 @@ public class EventoVisitaPageDTO
         this.totalRecords = totalRecords;
     }
 
-    public List<EventoDTO> getRecords() {
+    public List<EventoVisitaDTO> getRecords() {
         return records;
     }
 
-    public void setRecords(List<EventoDTO> records) {
+    public void setRecords(List<EventoVisitaDTO> records) {
         this.records = records;
     }
 }

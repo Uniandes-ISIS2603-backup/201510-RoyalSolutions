@@ -1,7 +1,6 @@
 (function () {
 
-    var mainApp = angular.module('mainApp', ['ngRoute', 'itinerarioModule', 'ciudadModule','paisModule','visitaModule','loginModule','eventoModule']);
-    var login = angular.module('login', ['ngRoute', 'sesionModule']);
+    var mainApp = angular.module('mainApp', ['ngRoute', 'itinerarioModule', 'ciudadModule','paisModule','visitaModule','loginModule','eventoModule','eventoVisitaModule']);
 
     mainApp.config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/itinerarios', {
@@ -18,6 +17,8 @@
                 templateUrl: 'src/modules/sesion/sesion.tpl.html'
             }).when('/evento', {
                 templateUrl: 'src/modules/evento/evento.tpl.html'
+            }).when('/eventoVisita', {
+                templateUrl: 'src/modules/eventoVisita/eventoVisita.tpl.html'
             }).otherwise('/'); 
         }]);
 })();

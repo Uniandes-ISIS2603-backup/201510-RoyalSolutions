@@ -8,6 +8,9 @@ package Royal.eventoVisita.logic.entity;
 import Royal.evento.logic.entity.EventoEntity;
 import Royal.visita.logic.entity.VisitaEntity;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -17,9 +20,24 @@ import javax.persistence.Entity;
 @Entity
 public class EventoVisitaEntity 
 {
+    @Id
+    @GeneratedValue(generator = "EventoVisita")
+    
+    private Long id;
+    
+    @ManyToOne
     private EventoEntity evento;
     
+    @ManyToOne
     private VisitaEntity visita;
+    
+     public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public EventoEntity getEvento() {
         return evento;
@@ -33,7 +51,7 @@ public class EventoVisitaEntity
         return visita;
     }
 
-    public void setName(VisitaEntity visita) {
+    public void setVisita(VisitaEntity visita) {
         this.visita = visita;
     }
 }

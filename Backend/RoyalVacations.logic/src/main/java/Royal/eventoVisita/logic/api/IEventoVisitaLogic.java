@@ -15,15 +15,15 @@ import java.util.List;
  */
 public interface IEventoVisitaLogic 
 {
-    public EventoVisitaDTO createEvento(EventoVisitaDTO detail);
+    public EventoVisitaDTO createEventoVisita(EventoVisitaDTO detail);
 
-    public List<EventoVisitaDTO> getEventos();
+    public List<EventoVisitaDTO> getEventoVisitas();
 
-    public EventoVisitaPageDTO getEventos(Integer page, Integer maxRecords);
+    public EventoVisitaPageDTO getEventoVisitas(Integer page, Integer maxRecords);
 
-    public EventoVisitaDTO getEvento(Long id);
+    public EventoVisitaDTO getEventoVisita(Long id);
 
-    public void deleteEvento(Long id);
+    public void deleteEventoVisita(Long id);
 
-    public void updateEvento(EventoVisitaDTO detail);
+    public void updateEventoVisita(EventoVisitaDTO detail);
 }

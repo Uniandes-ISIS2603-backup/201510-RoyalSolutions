@@ -35,29 +35,29 @@ public class EventoVisitaService
 
     @POST
     public EventoVisitaDTO createEvento(EventoVisitaDTO Evento) {
-        return EventoLogicService.createEvento(Evento);
+        return EventoLogicService.createEventoVisita(Evento);
     }
 
     @DELETE
     @Path("{id}")
     public void deleteEvento(@PathParam("id") Long id) {
-        EventoLogicService.deleteEvento(id);
+        EventoLogicService.deleteEventoVisita(id);
     }
 
     @GET
     public EventoVisitaPageDTO getEvento(@QueryParam("page") Integer page, @QueryParam("maxRecords") Integer maxRecords) {
-        return EventoLogicService.getEventos(page, maxRecords);
+        return EventoLogicService.getEventoVisitas(page, maxRecords);
     }
 
     @GET
     @Path("{id}")
     public EventoVisitaDTO getEvento(@PathParam("id") Long id) {
-        return EventoLogicService.getEvento(id);
+        return EventoLogicService.getEventoVisita(id);
     }
 
     @PUT
     @Path("{id}")
     public void updateEvento(@PathParam("id") Long id, EventoVisitaDTO Evento) {
-        EventoLogicService.updateEvento(Evento);
+        EventoLogicService.updateEventoVisita(Evento);
     }    
 }

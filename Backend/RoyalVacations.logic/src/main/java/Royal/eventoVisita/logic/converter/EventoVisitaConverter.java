@@ -19,6 +19,7 @@ public class EventoVisitaConverter
     public static EventoVisitaDTO entity2PersistenceDTO(EventoVisitaEntity entity) {
         if (entity != null) {
             EventoVisitaDTO dto = new EventoVisitaDTO();
+            dto.setId(entity.getId());
             if (entity.getEvento() != null) {
                 dto.setEvento(entity.getEvento().getId());
             }
@@ -34,7 +35,7 @@ public class EventoVisitaConverter
     public static EventoVisitaEntity persistenceDTO2Entity(EventoVisitaDTO dto) {
         if (dto != null) {
             EventoVisitaEntity entity = new EventoVisitaEntity();
-
+            entity.setId(dto.getId());
             return entity;
         } else {
             return null;

@@ -34,7 +34,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="record in records">
+				<tr ng-repeat="record in records | filter:{ usuario: itinerarioCtrl.darIdUsuario() }">
 					<td>{{record.name}}</td>
 					<td>{{itinerarioCtrl.formatearFecha(record.inicio)}}</td>
 					<td>{{itinerarioCtrl.formatearFecha(record.fin)}}</td>
@@ -66,7 +66,7 @@
 			</div>
                                 <div class="form-group">
 				<label for="idUsuario">Id Usuario</label>
-                                <input id="usuario" class="form-control" type="text" ng-model="currentRecord.usuario"/>			
+                                <input id="usuario" class="form-control" type="hidden" ng-model="currentRecord.usuario"/>			
 			</div>
 		</form>
 	</div>

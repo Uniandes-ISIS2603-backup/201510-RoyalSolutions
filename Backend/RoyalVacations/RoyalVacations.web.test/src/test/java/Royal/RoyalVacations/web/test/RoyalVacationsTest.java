@@ -53,7 +53,7 @@ public class RoyalVacationsTest {
         
         @Before
         public void setUpUrl() {
-            driver.get(baseUrl + "/RoyalVacations.services/#/");
+            driver.get(baseUrl + "/RoyalVacations.services/");
         }
   
       
@@ -95,5 +95,72 @@ public class RoyalVacationsTest {
          */
         assertTrue(success);
         Thread.sleep(2000);
+    }
+     @Test
+    public void testCrearItinerario() throws Exception {
+ 
+        
+        boolean success = false;
+        driver.findElement(By.partialLinkText("Itinerarios")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("crear")).click();
+        Thread.sleep(1000);
+ 
+        driver.findElement(By.id("nombre")).clear();
+         driver.findElement(By.id("fechaInicio")).clear();
+         driver.findElement(By.id("fechaFinal")).clear();
+        /**
+         * Comando que simula la escritura de un valor en el elemento(sendKeys)
+         * con el String de parámetro sobre // el elemento encontrado.
+         */
+        driver.findElement(By.id("nombre")).sendKeys("itinerario");
+        driver.findElement(By.id("fechaInicio")).sendKeys("16/06/2015");
+        driver.findElement(By.id("fechaFinal")).sendKeys("15/08/2015");
+ 
+        
+        driver.findElement(By.id("salvar")).click();
+        Thread.sleep(2000);
+ 
+ 
+ 
+         
+            if (driver.findElement(By.id("crear")) != null) {
+                
+                success = true;
+            }
+        
+ 
+        /**
+         * la prueba es exitosa si se encontró
+         * el nuevo elemento creado en la lista.
+         */
+        assertTrue(success);
+        Thread.sleep(2000);
+    }
+    
+    @Test
+    public void testborrarItinerario() throws Exception {
+        boolean success = true;
+        driver.findElement(By.partialLinkText("Itinerarios")).click();
+        Thread.sleep(3000);
+        List<WebElement> rows = driver.findElements(By.xpath("//table[contains(@id,'Table')]/tbody/tr"));
+        
+        driver.findElement(By.id("borrar")).click();
+        Thread.sleep(3000);
+        
+        //Se busca el objeto que fue eliminado, si se encuentra hay error al eliminar
+        rows = driver.findElements(By.xpath("//table[contains(@id,'Table')]/tbody/tr"));
+        if(rows.size()>0){
+            for (WebElement webElement : rows) {
+                List<WebElement> elems = webElement.findElements(By.xpath("td"));
+                if (elems.get(0).getText().equals("itinerario") ) {
+                    success = false;
+                    break;
+                }
+            }
+        }
+ 
+        Thread.sleep(3000);
+        assertTrue(success);
     }
 }

@@ -1,7 +1,7 @@
 (function (angular) {
     var visitaModule = angular.module('visitaModule');
 
-    visitaModule.controller('visitaCtrl', ['$scope', 'visitaService','ciudadService','itinerarioService', function ($scope, visitaService, ciudadService, itinerarioService) {
+    visitaModule.controller('visitaCtrl', ['$scope','$rootScope','visitaService','ciudadService','itinerarioService', function ($scope, $rootScope, visitaService, ciudadService, itinerarioService) {
             visitaService.extendCtrl(this, $scope);
             
             this.fetchRecords();
@@ -12,15 +12,16 @@
                return fechaStr[0];
             };
             
-            this.guardar = function(fecha1, fecha2, idItinerario) {
-                if(this.getItinerarioInicio(idItinerario) < fecha1 && fecha2 < this.getItinerarioFin(idItinerario) && fecha1 < fecha2)
-                {
+            this.guardar = function(fecha1, fecha2) {
+                //if(this.getItinerarioInicio(idItinerario) < fecha1 && fecha2 < this.getItinerarioFin(idItinerario) && fecha1 < fecha2)
+                //{
+                    $scope.currentRecord.itinerario = $rootScope.idItinerarioActual;
                     this.saveRecord();
-                }
-                else
-                {
-                    window.alert("Las fechas de la visita deben estar dentro del intervalo de tiempo del itinerario seleccionado");
-                }
+                //}
+                //else
+                //{
+                   // window.alert("Las fechas de la visita deben estar dentro del intervalo de tiempo del itinerario seleccionado");
+                //}
             };
             
             ciudadService.fetchRecords().then(function(data){
@@ -66,5 +67,14 @@
                 }
                 return;
             };
+            
+            this.darIdItinerario = function() {
+                return $rootScope.idItinerarioActual;
+            };
+            
+            this.guardarVisitaActual = function(idVisita) {
+               $rootScope.idVisitaActual=idVisita;
+            };
+            
         }]);
 })(window.angular);

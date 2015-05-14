@@ -27,5 +27,10 @@
             this.darIdUsuario = function() {
                return $rootScope.loginUsuarioActual;
             };
+            
+            this.guardarItinerarioActual = function(idItinerario) {
+               $rootScope.idItinerarioActual=idItinerario;
+            };
+            
         }]);
 })(window.angular);

@@ -1,7 +1,7 @@
 (function (angular) {
     var eventoVisitaModule = angular.module('eventoVisitaModule');
 
-    eventoVisitaModule.controller('eventoVisitaCtrl', ['$scope', 'eventoVisitaService','eventoService', 'visitaService',function ($scope, eventoVisitaService, eventoService, visitaService) {
+    eventoVisitaModule.controller('eventoVisitaCtrl', ['$scope','$rootScope','eventoVisitaService','eventoService', 'visitaService',function ($scope, $rootScope, eventoVisitaService, eventoService, visitaService) {
             eventoVisitaService.extendCtrl(this, $scope);
             
             this.fetchRecords();
@@ -38,18 +38,19 @@
             };
             
             this.guardar = function(idvisita, idevento) {
-                if(this.geteventoDate(idevento) < this.getvisitaInicio(idvisita) || this.geteventoDate(idevento) > this.getvisitaFin(idvisita))
-                {
-                    window.alert("La fecha del evento no coincide con la visita");
-                }
-                else if(this.geteventoCiudad(idevento) !== this.getvisitaCiudad(idvisita))
-                {
-                    window.alert("La ciudad del evento no coincide con la ciudad de la visita");
-                }
-                else
-                {
+                //if(this.geteventoDate(idevento) < this.getvisitaInicio(idvisita) || this.geteventoDate(idevento) > this.getvisitaFin(idvisita))
+                //{
+                    //window.alert("La fecha del evento no coincide con la visita");
+                //}
+                //else if(this.geteventoCiudad(idevento) !== this.getvisitaCiudad(idvisita))
+                //{
+                    //window.alert("La ciudad del evento no coincide con la ciudad de la visita");
+                //}
+                //else
+                //{
+                    $scope.currentRecord.visita = $rootScope.idVisitaActual;
                     this.saveRecord();
-                }
+                //}
             };
             
             visitaService.fetchRecords().then(function(data){
@@ -91,5 +92,11 @@
                 }
                 return;
             };
+            
+            this.darIdVisita = function() {
+                return $rootScope.idVisitaActual;
+            };
+            
+            
         }]);
 })(window.angular);

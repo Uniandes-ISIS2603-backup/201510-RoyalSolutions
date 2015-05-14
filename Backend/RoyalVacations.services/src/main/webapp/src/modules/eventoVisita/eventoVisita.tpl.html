@@ -33,7 +33,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="record in records">
+				<tr ng-repeat="record in records | filter:{ visita: eventoVisitaCtrl.darIdVisita() }">
                                         <td>{{eventoVisitaCtrl.geteventoName(record.evento)}}</td>
                                         <td>{{eventoVisitaCtrl.geteventoDate(record.evento)}}</td>
 					<td>
@@ -52,10 +52,10 @@
 				<label for="evento">Evento</label>
 				<select id="evento" class="form-control" ng-options="evento.id as evento.name for evento in eventoRecords" ng-model="currentRecord.evento"></select>
                         </div>
-			<div class="form-group">
-				<label for="visita">Visita</label>
-				<select id="visita" class="form-control" ng-options="visita.id as visita.id for visita in visitaRecords" ng-model="currentRecord.visita"></select>
-                        </div>
+                        <div class="form-group">
+				<label for="idVisita"> </label>
+                                <input id="idVisita" class="form-control" type="hidden" ng-model="currentRecord.visita"/>			
+			</div>
 		</form>
 	</div>
 </div>

@@ -17,7 +17,7 @@
 				<div class="collapse navbar-collapse" id="ciudad-navbar">
 					<button class="btn btn-default navbar-btn" ng-hide="visitaCtrl.editMode" ng-click="visitaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
 					<button class="btn btn-default navbar-btn" ng-hide="visitaCtrl.editMode" ng-click="visitaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-					<button class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.guardar(currentRecord.inicio,currentRecord.fin,currentRecord.itinerario)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.guardar(currentRecord.inicio,currentRecord.fin)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 				</div>
 			</div>
@@ -34,14 +34,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="record in records">
+				<tr ng-repeat="record in records | filter:{ itinerario: visitaCtrl.darIdItinerario() }">
 					<td>{{visitaCtrl.getCiudadName(record.ciudad)}}</td>
 					<td>{{visitaCtrl.formatearFecha(record.inicio)}}</td>
 					<td>{{visitaCtrl.formatearFecha(record.fin)}}</td>
 					<td>
-                                                <ul class="nav nav-pills nav-stacked">
-                                                    <li><a href="#/eventoVisita">Ver eventos</a></li>
-                                                </ul>
+						<form action="#/eventoVisita">
+                                                        <input type="submit" ng-click="visitaCtrl.guardarVisitaActual(record.id)" value="Ver eventos" >
+                                                </form>    
 						<button class="btn btn-default btn-sm" ng-click="visitaCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 						<button class="btn btn-default btn-sm" ng-click="visitaCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>
 					</td>
@@ -57,11 +57,6 @@
                                 <label for="ciudad">Ciudad</label>
                                 <select id="ciudad" class="form-control" ng-options="ciudad.id as ciudad.name for ciudad in ciudadRecords" ng-model="currentRecord.ciudad"></select>
                         </div>
-                        <div class="form-group">
-                                <label for="itinerario">Itinerario</label>
-                                <select id="itinerario" class="form-control" ng-options="itinerario.id as itinerario.name for itinerario in itinerarioRecords" ng-model="currentRecord.itinerario"></select>
-                        </div>
-
 			<div class="form-group">
 				<label for="fechaInicio">Fecha Inicio</label>
 				<input id="fechaInicio" class="form-control" type="date" ng-model="currentRecord.inicio"/>
@@ -69,6 +64,10 @@
 			<div class="form-group">
 				<label for="fechaFinal">Fecha Final</label>
 				<input id="fechaFinal" class="form-control" type="date" ng-model="currentRecord.fin"/>
+			</div>
+                        <div class="form-group">
+				<label for="idItinerario"> </label>
+                                <input id="idItinerario" class="form-control" type="hidden" ng-model="currentRecord.itinerario"/>			
 			</div>
 		</form>
 	</div>

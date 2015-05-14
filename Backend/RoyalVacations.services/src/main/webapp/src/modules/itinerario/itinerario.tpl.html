@@ -40,7 +40,7 @@
 					<td>{{itinerarioCtrl.formatearFecha(record.fin)}}</td>
 					<td>
 						<form action="#/visitas">
-                                                        <input type="submit" ng-click="itinerarioCtrl.guardarItinerarioActual(record.id)" value="Ver visitas" >
+                                                        <input id="visitas" type="submit" ng-click="itinerarioCtrl.guardarItinerarioActual(record.id)" value="Ver visitas" >
                                                 </form>                                          
 						<button class="btn btn-default btn-sm" ng-click="itinerarioCtrl.editRecord(record)"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 						<button id="borrar" class="btn btn-default btn-sm" ng-click="itinerarioCtrl.deleteRecord(record)"><span class="glyphicon glyphicon-minus"></span> Delete</button>

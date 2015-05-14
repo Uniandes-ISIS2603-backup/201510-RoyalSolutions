@@ -71,7 +71,7 @@ public class CiudadLogic implements ICiudadLogic {
         CiudadConverter.entity2PersistenceDTO(entity);
     }
     private PaisEntity getSelectedCountry(CiudadDTO ciudad){
-        if (ciudad != null && ciudad.getCountry() != null && ciudad.getCountry() != null) {
+        if (ciudad != null && ciudad.getCountry() != null) {
             return entityManager.find(PaisEntity.class, ciudad.getCountry());
         }else{
             return null;

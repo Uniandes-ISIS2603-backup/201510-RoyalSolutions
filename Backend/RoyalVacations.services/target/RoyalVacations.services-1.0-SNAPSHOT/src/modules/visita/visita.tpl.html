@@ -15,9 +15,9 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="ciudad-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="visitaCtrl.editMode" ng-click="visitaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button id="crear" class="btn btn-default navbar-btn" ng-hide="visitaCtrl.editMode" ng-click="visitaCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
 					<button class="btn btn-default navbar-btn" ng-hide="visitaCtrl.editMode" ng-click="visitaCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-					<button class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.guardar(currentRecord.inicio,currentRecord.fin)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button id="guardar" class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.guardar(currentRecord.inicio,currentRecord.fin)"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 					<button class="btn btn-default navbar-btn" ng-show="visitaCtrl.editMode" ng-click="visitaCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 				</div>
 			</div>

@@ -1,11 +1,14 @@
 package Royal.RoyalVacations.web.test;
 
+import static org.junit.Assert.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.jboss.arquillian.junit.Arquillian;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,12 +18,8 @@ import org.junit.runners.MethodSorters;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 
-/**
- *
- * @author estudiante
- */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RoyalVacationsTest {
-        // Es la instancia inicial del web driver que controlará el navegador firefox
         private static WebDriver driver;
         // url en el cual se aloja la página web (en este caso localhost:8080)
         private static String baseUrl;
@@ -54,7 +53,47 @@ public class RoyalVacationsTest {
         
         @Before
         public void setUpUrl() {
-            driver.get(baseUrl + "/RoyalVacations.service");
+            driver.get(baseUrl + "/RoyalVacations.services/#/");
         }
-    
+  
+      
+            @Test
+    public void testRegistrarse() throws Exception {
+ 
+        
+        boolean success = false;
+        driver.findElement(By.partialLinkText("Login")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("crear")).click();
+        Thread.sleep(1000);
+ 
+        driver.findElement(By.id("name")).clear();
+         driver.findElement(By.id("password")).clear();
+        /**
+         * Comando que simula la escritura de un valor en el elemento(sendKeys)
+         * con el String de parámetro sobre // el elemento encontrado.
+         */
+        driver.findElement(By.id("name")).sendKeys("user1");
+        driver.findElement(By.id("password")).sendKeys("password");
+ 
+        
+        driver.findElement(By.id("registrarse")).click();
+        Thread.sleep(2000);
+ 
+ 
+ 
+         
+            if (driver.findElement(By.id("crear")) != null) {
+                
+                success = true;
+            }
+        
+ 
+        /**
+         * la prueba es exitosa si se encontró
+         * el nuevo elemento creado en la lista.
+         */
+        assertTrue(success);
+        Thread.sleep(2000);
+    }
 }

@@ -16,9 +16,9 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="login-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="loginCtrl.editMode" ng-click="loginCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear cuenta</button>
-                                        <button class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.saveRecord()" href="#/login"><span class="glyphicon glyphicon-floppy-disk"></span> Registrarse</button>
-					<button class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					<button id="crear" class="btn btn-default navbar-btn" ng-hide="loginCtrl.editMode" ng-click="loginCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Crear cuenta</button>
+                                        <button id="registrarse" class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.saveRecord()" href="#/login"><span class="glyphicon glyphicon-floppy-disk"></span> Registrarse</button>
+					<button id="cancel" class="btn btn-default navbar-btn" ng-show="loginCtrl.editMode" ng-click="loginCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 				</div>
 			</div>
 		</nav>

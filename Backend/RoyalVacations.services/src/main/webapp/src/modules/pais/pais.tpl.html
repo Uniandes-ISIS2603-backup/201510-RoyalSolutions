@@ -15,10 +15,10 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="pais-navbar">
-					<button class="btn btn-default navbar-btn" ng-hide="paisCtrl.editMode" ng-click="paisCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
-					<button class="btn btn-default navbar-btn" ng-hide="paisCtrl.editMode" ng-click="paisCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
-					<button class="btn btn-default navbar-btn" ng-show="paisCtrl.editMode" ng-click="paisCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
-					<button class="btn btn-default navbar-btn" ng-show="paisCtrl.editMode" ng-click="paisCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+					<button id="CrearPais" class="btn btn-default navbar-btn" ng-hide="paisCtrl.editMode" ng-click="paisCtrl.createRecord()"><span class="glyphicon glyphicon-plus"></span> Create</button>
+					<button id="RefrescarPaises" class="btn btn-default navbar-btn" ng-hide="paisCtrl.editMode" ng-click="paisCtrl.fetchRecords()"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+					<button id="GuardarPaises" class="btn btn-default navbar-btn" ng-show="paisCtrl.editMode" ng-click="paisCtrl.saveRecord()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+					<button id="Cancelar" class="btn btn-default navbar-btn" ng-show="paisCtrl.editMode" ng-click="paisCtrl.fetchRecords()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 				</div>
 			</div>
 		</nav>
